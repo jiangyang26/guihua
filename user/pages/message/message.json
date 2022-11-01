@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-nav": "/components/nav/nav",
+    "navbar": "/components/navbar/index"
+  },
+  "navigationStyle": "custom"
+}

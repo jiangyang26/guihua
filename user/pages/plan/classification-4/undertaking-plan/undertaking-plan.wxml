@@ -1,0 +1,79 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>计划目标</text>
+    </view>
+    <view class="target_bottom_">计划目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="multiSelector" range="{{planTypeArray}}" bindchange="changePlanType">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">选择类别 </text>{{planTypeValue.length != 0 ? planTypeArray[0][planTypeValue[0]] +'-'+ planTypeArray[1][planTypeValue[1]] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker range="{{targetArray}}" bindchange="changeTarget">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">选择目标 </text>{{ inputInfo.target ? inputInfo.target : (targetArray[targetValue] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>目前情况</text>
+    </view>
+    <picker mode="region" level="province" bindchange="changeRegion">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">计划创业城市 </text>{{regionValue[0] || ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{useArray1}}" bindchange="changeUse1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">合伙人数量 </text>{{inputInfo.useValue1 ? inputInfo.useValue1 : (useArray1[useValue1] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{useArray}}" bindchange="changeUse">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">你的股份占比 </text>{{inputInfo.useValue ? inputInfo.useValue : (useArray[useValue] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{yearIncomeArray}}" bindchange="changeYearIncome">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">创业启动资金 </text>{{yearIncomeArray[yearIncomeValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <textarea placeholder="其他" placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

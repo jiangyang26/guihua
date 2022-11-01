@@ -1,0 +1,33 @@
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+
+<view class='view-page'>
+  <navbar page-name="消息" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+  <view class='page-content'>
+    <view class="message">
+      <view class="header_pic">
+        <image src="{{banner[0].image}}" mode="widthFix"></image>
+        <view><text>用户端</text></view>
+      </view>
+      <w-nav title="我的留言"></w-nav>
+      <view class="profile_message" wx:for="{{messageList}}" wx:key="index" 
+            bindtap="toLeaveMessage" data-id="{{item.leaving_id}}" data-info="{{item.info}}" 
+            data-userplan_id="{{item.userplan_id}}" data-type="message" data-name="{{item.name}}"> 
+        <image wx:if="{{item.istrue == '0'}}" class="message_red" src="/user/start/icon/message_red.png" mode="widthFix"/>
+        
+        <view class="left_pic"><image src="{{item.avatar}}"></image></view>
+        <view class="right_message" bindtap="toMessageDetail">
+          <view> 
+            <text>{{item.name}}</text>
+            <text>{{item.createtime}}</text>
+          </view>
+          <view>
+            <text class="text_ep" style="width: 300rpx;white-space: nowrap;overflow: hidden; flex: 1;text-overflow: ellipsis;">{{item.info}}</text>
+            <image class="mark_pic" src="/user/start/icon/message.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="no_detail" wx:if="{{messageList.length == 0}}">暂无留言消息</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+<view class="agreement">
+  <text>{{agreement.title}}</text>
+</view>

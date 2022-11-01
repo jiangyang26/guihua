@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "w-step": "/components/step/step",
+    "w-location": "/components/location/location",
+    "case-share": "/components/caseshare/case-share/case-share",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "navbar": "/components/navbar/index"
+  },
+  "navigationStyle": "custom"
+}

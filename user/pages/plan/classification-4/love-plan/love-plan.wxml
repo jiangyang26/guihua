@@ -1,0 +1,73 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>选择目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的类目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="multiSelector" range="{{categoryArray}}"  bindchange="changeCategory">
+      <view class="lines">
+        <text class="place_"><text style="color: black;">规划类别 </text>{{categoryValue.length != 0 ? categoryArray[0][0]+'-'+categoryArray[1][categoryValue[1]] : ''}}</text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>目前情况</text>
+    </view>
+    <picker range="{{sexArray}}" bindchange="changeSex">
+      <view class="lines mark_lines">
+        <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+          <text style="color: black;">性别 </text>{{sexArray[sexValue] || ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <view class="lines mark_lines" bindtap="inputTap" data-type="stature">
+      <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+        <text style="color: black;">身高cm </text>{{inputInfo.stature || ''}}
+      </text>
+      <image src="/user/start/icon/down.png" mode="widthFix"></image>
+    </view>
+    <view class="lines mark_lines" bindtap="inputTap" data-type="weight">
+      <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+        <text style="color: black;">体重kg </text>{{inputInfo.weight || ''}}
+      </text>
+      <image src="/user/start/icon/down.png" mode="widthFix"></image>
+    </view>
+    <picker range="{{tradeArray}}" bindchange="changeTrade">
+      <view class="lines mark_lines">
+        <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+          <text style="color: black;">行业 </text>{{inputInfo.trade || tradeArray[tradeValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker range="{{incomeArray}}" bindchange="changeIncome">
+      <view class="lines mark_lines">
+        <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+          <text style="color: black;">月收入范围 </text>{{incomeArray[incomeValue] || ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <textarea placeholder="其他信息手动输入框" placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

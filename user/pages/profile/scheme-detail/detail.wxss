@@ -1,0 +1,21 @@
+/* user/pages/profile/scheme-detail/detail.wxss */
+.scheme_detail{
+  padding: 40rpx 40rpx 112rpx;
+  box-sizing: border-box;
+  background: #FAFCFF;
+}
+.plan_box{
+  margin-bottom: 48rpx;
+}
+.plan_box>text{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000000;
+}
+.plan_box>image{
+  width: 670rpx;
+  height: 240rpx;
+  box-shadow: 0px 8rpx 24rpx 2rpx rgba(0, 0, 0, 0.05);
+  border-radius: 16rpx;
+  margin-top: 16rpx;
+}

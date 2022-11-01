@@ -1,0 +1,73 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>选择学习目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的学习成绩目标（国际学校及海外学校）</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="region" level="city" bindchange="changeRegion" value="{{region}}">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">目前所在城市 </text>{{regionValue.length != 0 ? regionValue[0] +'-'+regionValue[1] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="changeStudyStage" range="{{studyStageArray}}">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">选择学习阶段 </text>{{inputInfo.stage || studyStageArray[studyStageValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <view class="title mark_lines">学校名称</view>
+    <view class="input_name">
+      <input type="text" placeholder="请输入学校名称" placeholder-class="name_place_" bindinput="changeSchool"/>
+    </view>
+    <picker mode="selector" bindchange="changeCourse" range="{{courseArray}}">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">选择课程体系 </text>{{inputInfo.course || courseArray[courseValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="changeSubject" range="{{subjectArray}}">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">选择科目 </text>{{inputInfo.subject || subjectArray[subjectValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="changeFraction" range="{{fractionArray}}">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">选择目标分数 </text>{{inputInfo.fraction || fractionArray[fractionValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" focus="{{focus}}" bindinput="changeInput"
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>输入目前情况</text>
+    </view>
+    <textarea placeholder="输入目前分数及情况、需求介绍" placeholder-class="place_" bindinput="changeOther"></textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

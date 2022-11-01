@@ -1,0 +1,41 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>选择目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的兴趣（爱好）类目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="multiSelector" range="{{planType}}" bindcolumnchange="changeColumnc" bindchange="changeMulti">
+      <view class="lines">
+        <text class="place_"><text style="color: black;">选择类别</text> {{planTypeIndex.length != 0 ? planType[0][planTypeIndex[0]]+'-'+(inputInfo.plan || planType[1][planTypeIndex[1]]) : ''}}</text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="bindTargetChange" range="{{targetArray}}">
+      <view class="lines mark_lines">
+        <text class="place_"><text style="color: black;">选择目标</text> {{inputInfo.target || targetArray[targetIndex]}}</text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>输入目前情况</text>
+    </view>
+    <textarea placeholder="请输入目前个人目前阶段或情况" placeholder-class="place_" bindinput="changeOther"></textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

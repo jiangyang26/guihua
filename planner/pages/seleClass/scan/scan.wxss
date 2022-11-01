@@ -1,0 +1,68 @@
+/* components/scan/scan.wxss */
+.scan{
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.body{
+  background-color: #fff;
+  width: 500rpx;
+  height: 850rpx;
+  padding-top: 60rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border-radius: 10rpx;
+}
+.title_box{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+.title_box>text{
+  font-size: 32rpx;
+}
+.pic>image{
+  width: 250rpx;
+  height: 250rpx;
+}
+.bottom{
+  width: 100%;
+  display: flex;
+  padding: 0rpx 40rpx;
+  box-sizing: border-box;
+  justify-content: center;
+  margin-top: 80rpx;
+}
+.back, .push{
+  width: 170rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+}
+.back{
+  height: 60rpx;
+  border: 2px solid #6F7FEE;
+}
+.push{
+  background-color: #6F7FEE;
+  color: white;
+}
+.pic{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,8 @@
+<view class="agreement">
+  <view class="agreement_box" wx:if="{{signlink != ''}}">
+    <text class="title">已签署合同链接</text>
+    <view class="href multiline_text_overflow">{{signlink}}</view>
+    <view class="bottom" bindtap="copyUrl">复制完整链接到浏览器打开</view>
+  </view>
+  <view wx:if="{{signlink == ''}}" class="no_detail">暂未签署合同协议</view>
+</view>

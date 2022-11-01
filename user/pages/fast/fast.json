@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "w-lines": "/components/lines/lines",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+  },
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#5350D5"
+}

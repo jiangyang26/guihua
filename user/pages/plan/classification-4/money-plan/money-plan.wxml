@@ -1,0 +1,87 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>计划目标</text>
+    </view>
+    <view class="target_bottom_">计划目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker range="{{planTypeArray}}" bindchange="changePlanType">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">规划类别 </text>{{planTypeArray[planTypeValue] || ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker range="{{targetArray}}" bindchange="changeTarget">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">计划目标 </text>{{targetArray[targetValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>目前情况</text>
+    </view>
+    <picker mode="selector" range="{{yearIncomeArray}}" bindchange="changeYearIncome">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">目前家庭年收入范围 </text>{{yearIncomeArray[yearIncomeValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{mortgageArray}}" bindchange="changeMortgage">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">是否有房贷 </text>{{mortgageArray[mortgageValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{scaleArray1}}" bindchange="changeScale1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">月房贷占收入比例 </text>{{scaleArray1[scaleValue1]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{scaleArray2}}" bindchange="changeScale2">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">每月可支出金额比例 </text>{{scaleArray2[scaleValue2]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{useArray}}" bindchange="changeUse">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">支出最高用途 </text>{{inputInfo.useValue ? inputInfo.useValue : (useArray[useValue] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <textarea placeholder="其他" placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

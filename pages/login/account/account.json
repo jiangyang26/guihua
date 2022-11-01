@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "van-field": "@vant/weapp/field/index"
+  },
+  "navigationStyle": "custom"
+}

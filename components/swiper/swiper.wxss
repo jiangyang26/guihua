@@ -1,0 +1,15 @@
+/* components/swiper/swiper.wxss */
+.swiper{
+  width: 690rpx;
+  height: 368rpx;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.swiper-item image{
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+}
+.swiper-item{
+  font-size: 0;
+}

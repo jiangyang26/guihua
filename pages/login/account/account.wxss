@@ -1,0 +1,72 @@
+page {
+  background: #FAFCFF;
+  box-sizing: border-box;
+  height: 100%;
+}
+.top_title {
+  height: 32px;
+  margin-top: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  margin: 80rpx 0 0 100rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+.input {
+  margin: 0 100rpx;
+  margin-top: 12rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+}
+.input .area_code {
+  width: 72rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
+  background-color: #EFF6FF;
+  font-size: 26rpx;
+}
+.input input {
+  margin-left: 24rpx;
+  flex: 1;
+  font-size: 28rpx;
+  height: 104rpx;
+}
+.input .code {
+  font-size: 26rpx;
+  color: #5C69E0;
+}
+button {
+  margin: 128rpx auto 0;
+  width: 590rpx;
+  height: 96rpx;
+  background-color: #5350D5;
+  border-radius: 88rpx;
+  color: #fff;
+}
+.background {
+  position: absolute;
+  top: 550rpx;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.background image {
+  width: 427rpx;
+  height: 898rpx;
+}
+.registe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 472rpx;
+  height: 626rpx;
+}
+.registe image {
+  width: 100%;
+  height: 100%;
+}

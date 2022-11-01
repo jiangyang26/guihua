@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "agreement": "/components/agreement/agreement"
+  },
+  "navigationBarTitleText": "我的订单"
+}

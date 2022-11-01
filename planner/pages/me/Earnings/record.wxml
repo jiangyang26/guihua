@@ -1,0 +1,75 @@
+<!-- pages/me/Earnings/record.wxml -->
+<import src="../../../template/index.wxml"></import>
+<template is="banners" data="{{banner}}"></template>
+<view class="title_box">我的收款信息</view>
+<form bindsubmit="onSubmit">
+    <view class="form_box">
+        <view class="line">
+            <view>姓名</view>
+            <input placeholder="请输入姓名" bindinput="changeName" value="{{inputInfo.payname || ''}}"/>
+        </view>
+        <view class="line">
+            <view>身份证号</view>
+            <input placeholder="请输入身份证号" bindinput="changeSf" value="{{inputInfo.sf || ''}}"/>
+        </view>
+        <view class="line">
+            <view>收款通知手机号码</view>
+            <input placeholder="请输入手机号码" bindinput="changePhone" value="{{inputInfo.phone || ''}}"/>
+        </view>
+        <view class="line">
+            <view>银行卡号</view>
+            <input placeholder="请输入银行卡号" bindinput="changeNumber" value="{{inputInfo.number || ''}}"/>
+        </view>
+        <view class="line">
+            <view>开户行信息</view>
+            <input placeholder="请输入开户行信息" bindinput="changeDetail" value="{{inputInfo.detail || ''}}"/>
+        </view>
+        <view class="line">
+            <view>开户行详细地址</view>
+            <input placeholder="请输入开户行地址" bindinput="changeAddress" value="{{inputInfo.address || ''}}"/>
+        </view>
+    </view>
+    <button class="submit flex" bindtap="submitTap">提交</button>
+</form>
+<view class="title_box">收益查询</view>
+
+<view class="box" wx:for="{{payList}}" wx:key="this">
+    <view class="title">{{item.name}}</view>
+    <view class="line">
+        <view class="row">
+            <view class="head">总酬金</view>
+            <view class="num">{{item.sum_total}}</view>
+        </view>
+        <view class="row">
+            <view class="head">当月发放</view>
+            <view class="num">{{item.hour_ff}}</view>
+        </view>
+        <view class="row">
+            <view class="head">累计发放</view>
+            <view class="num">{{item.grand_ff}}</view>
+        </view>
+        <view class="row">
+            <view class="head">未发放</view>
+            <view class="num">{{item.no_ff}}</view>
+        </view>
+    </view>
+    <view class="line">
+        <view class="row">
+            <view class="head">课时安排</view>
+            <view class="num">{{item.classtimes}}</view>
+        </view>
+        <view class="row">
+            <view class="head">已完成课时</view>
+            <view class="num">{{item.succ_class}}</view>
+        </view>
+        <view class="row">
+            <view class="head">未完成课时</view>
+            <view class="num">{{item.no_class}}</view>
+        </view>
+    </view>
+    <view class="footer">
+        <view >备注</view>
+        <view >{{item.desc}}</view>
+    </view>
+</view>
+<view class="no_detail" wx:if="{{payList.length == 0}}">暂无收益</view>

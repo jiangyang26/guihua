@@ -1,0 +1,38 @@
+<!--pages/message/message.wxml-->
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+
+<view class='view-page'>
+  <navbar page-name="消息" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+  <view class='page-content'>
+    <view class="banner">
+      <image src="{{banner[0].image}}" />
+      <view >规划师端</view>
+    </view>
+    <view class="sticky">
+        <view class="title_box">我的留言</view>
+    </view>
+    <view class="profile_message" wx:for="{{messageList}}" wx:key="index" 
+          bindtap="toLeaveMessage" data-id="{{item.leaving_id}}" 
+          data-info="{{item.info}}" data-user_id="{{item.user_id}}" 
+          data-avatar="{{item.avatar}}" data-name="{{item.nickname}}"> 
+
+      <image wx:if="{{item.istrue == '0'}}" class="message_red" src="/planner/start/icon/message_red.png" mode="widthFix"/>
+
+      <view class="left_pic"><image src="{{item.avatar}}"></image></view>
+      <view class="right_message" bindtap="toMessageDetail">
+        <view> 
+          <text>{{item.nickname}}</text>
+          <text>{{item.createtime}}</text>
+        </view>
+        <view>
+          <text class="text_ep" style="width: 300rpx;white-space: nowrap;overflow: hidden; flex: 1;text-overflow: ellipsis;">{{item.info}}</text>
+          <image class="mark_pic" src="/planner/start/icon/message.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="no_detail" wx:if="{{messageList.length == 0}}">暂无留言消息</view>
+
+  </view>
+</view>

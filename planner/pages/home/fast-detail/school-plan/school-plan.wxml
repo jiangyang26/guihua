@@ -1,0 +1,27 @@
+<view class="school_plan">
+  <view class="box_title">
+    <view></view>
+    <text>需求类型</text>
+  </view>
+  <view class="other_box"><text>{{planInfo.type}}</text></view>
+  <view class="box_title">
+    <view></view>
+    <text>计划年龄</text>
+  </view>
+  <view class="other_box"><text>{{planInfo.ql_times}}</text></view>
+  <view class="box_title">
+    <view></view>
+    <text>规划目标</text>
+  </view>
+  <view class="other_box"><text>{{planInfo.ql_info}}</text></view>
+  <view class="box_title">
+    <view></view>
+    <text>目前情况</text>
+  </view>
+  <view class="other_box"><text>{{planInfo.ql_type}}</text></view>
+  <view class="box_title">
+    <view></view>
+    <text>其他要求</text>
+  </view>
+  <view class="other_box mark_other"><text>{{planInfo.ql_desc}}</text></view>
+</view>

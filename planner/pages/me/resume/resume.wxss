@@ -1,0 +1,122 @@
+/* planner/pages/me/resume/resume.wxss */
+.resume{
+  background: #FAFCFF;
+  padding: 40rpx 30rpx 0rpx;
+  box-sizing: border-box;
+  height: 100vh;
+}
+.top_upload{
+display: flex;
+}
+.top_upload>view{
+  width: 50%;
+  height: 86rpx;
+}
+.top_upload>.left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F5F5;
+  border-radius: 10rpx;
+}
+.top_upload>.right{
+  font-size: 32rpx;
+  color: #44474A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top_upload>.left>text{
+  font-size: 32rpx;
+  color: #097BF9;
+}
+.upload_img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.resume_list{
+  height: 880rpx;
+  margin-top: 30rpx;
+}
+.item_resume{
+  background-color: #F4F5F5;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+}
+.item_resume>.left image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.item_resume>.left{
+  display: flex;
+  align-items: center;
+}
+.item_resume>.left>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #A7ABB0;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  margin-left: 20rpx;
+  margin-right: 30rpx;
+}
+.item_resume>.left>text{
+  font-size: 32rpx;
+  color: #333333;
+  width: 300rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.item_resume>.right{
+  display: flex;
+  align-items: center;
+}
+.item_resume>.right>text{
+  font-size: 32rpx;
+  color: #767779;
+  margin-right: 60rpx;
+}
+.item_resume>.right>van-icon{
+  margin-right: 20rpx;
+}
+.bottom_button{
+  display: flex;
+  justify-content: space-between;
+  padding: 0rpx 60rpx;
+  box-sizing: border-box;
+}
+.bottom_button>view{
+  width: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  border-radius: 24rpx;
+}
+.back_{
+  height: 60rpx;
+  border: 2px solid #5B6EEB;
+}
+.upload_{
+  height: 68rpx;
+  background-color: #6F7FEE;
+  color: white;
+}
+.notShow_{
+  color: #ff0000;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+.notShow_>image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 14rpx;
+}

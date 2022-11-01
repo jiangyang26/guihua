@@ -1,0 +1,34 @@
+/* planner/pages/home/fast-detail/school-plan/school-plan.wxss */
+.school_plan{
+  padding: 44rpx 60rpx 112rpx;
+}
+.box_title{
+  display: flex;
+  align-items: center;
+}
+.box_title>view{
+  width: 8rpx;
+  height: 32rpx;
+  background: #5350D5;
+  border-radius: 4rpx;
+}
+.box_title>text{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-left: 32rpx;
+}
+.other_box{
+  display: flex;
+  margin: 24rpx 0rpx 48rpx;
+  align-items: center;
+}
+.other_box>text{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #000000;
+  margin-left: 40rpx;
+}
+.mark_other>text{
+  font-size: 26rpx;
+}

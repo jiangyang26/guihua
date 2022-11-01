@@ -1,0 +1,12 @@
+<!--components/navbar/index.wxml-->
+<view class="navbar custom-class" style='height:{{navHeight}}px;background-color:{{bgColor}}'>
+  <view wx:if="{{showNav}}" class="navbar-action-wrap navbar-action-group row item-center" style='top:{{navTop}}px;background-color:rgba(255,255,255,.6)'>
+      <view class="navbar-action_item" bindtap="_navBack">
+        <image src="/assets/image/back.png" mode="widthFix"></image>
+      </view>
+      <view name="index" color="{{iconColor}}" size="15px" block="{{true}}" class="navbar-action_item last" bindtap="_toIndex"></view>
+  </view>
+  <view class='navbar-title' style='top:{{navTop}}px'>
+    {{pageName}}
+  </view>
+</view>

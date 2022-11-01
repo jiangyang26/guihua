@@ -1,0 +1,103 @@
+<!-- pages/me/order/order.wxml -->
+<view class="head">
+    <view class="title">您与平台默认签署四项基本协议</view>
+
+    <view class="agreement_list">
+        <agreement wx:for="{{agreementList}}" wx:key="this" agreement="{{item}}"/>
+    </view>
+</view>
+
+<wxs module="m1">
+  function statusFun(num) {
+    var obj = {}
+    switch (num) {
+      case '1':
+        obj.str = '已发起'
+        obj.image = '/planner/start/icon/pass.png'
+        break;
+      case '2':
+        obj.str = '未通过'
+        obj.image = '/planner/start/icon/fail.png'
+        break;
+      case '3':
+        obj.str = '合同已生成'
+        obj.image = '/planner/start/icon/success.png'
+        break;
+      case '4':
+        obj.str = '已签署'
+        obj.image = '/planner/start/icon/success.png'
+        break;
+    }
+    return obj
+  }
+
+  module.exports = {
+    statusFun: statusFun
+  }
+</wxs>
+
+<van-tabs nav-class="tabs_custom" active="{{ active }}"  bind:change="onChange" 
+          animated="{{true}}" swipeable="{{true}}" color="#5350D5" title-active-color="#5350D5">
+  <van-tab title="委托协议">
+    <view class="body">
+        <view class="title" wx:if="{{orderList.length != 0}}">订单及协议/平台签约</view>
+        <view wx:if="{{orderList.length == 0}}" class="no_detail">暂无协议</view>
+        
+        <view class="box" wx:for="{{orderList}}" wx:key="this" bindtap="toAgreementDetail" data-signlink="{{item.signlink}}">
+            <view class="head">
+                <view class="name">{{item.type}}</view>
+                <view class="state">
+                    <image src="{{m1.statusFun(item.type_status).image}}" />
+                    <view >{{m1.statusFun(item.type_status).str}}</view>
+                </view>
+            </view>
+            <view class="content">
+                <view class="line">
+                    <view class="number">订单编号：{{item.pro_sn}}</view>
+                    <view class="details">查看协议详情 <mp-icon icon="arrow" color="black" size="{{8}}"></mp-icon></view>
+                </view>
+                <view class="line">
+                    <view class="date">发布日期：{{item.createtime}}</view>
+                </view>
+
+                <view class="line" wx:if="{{item.type_status == 2}}">
+                    <view class="fail">{{item.desc || '暂无驳回原因'}}</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+  </van-tab>
+  <van-tab title="渠道协议">
+  
+    <view class="body">
+        <view class="title" wx:if="{{orderList.length != 0}}">订单及协议/平台签约</view>
+        <view wx:if="{{orderList.length == 0}}" class="no_detail">暂无协议</view>
+        
+        <view class="box" wx:for="{{orderList}}" wx:key="this" bindtap="toAgreementDetail" data-signlink="{{item.signlink}}">
+            <view class="head">
+                <view class="name">{{item.type}}</view>
+                <view class="state">
+                    <image src="{{m1.statusFun(item.type_status).image}}" />
+                    <view >{{m1.statusFun(item.type_status).str}}</view>
+                </view>
+            </view>
+            <view class="content">
+                <view class="line">
+                    <view class="number">订单编号：{{item.pro_sn}}</view>
+                    <view class="details">查看协议详情 <mp-icon icon="arrow" color="black" size="{{8}}"></mp-icon></view>
+                </view>
+                <view class="line">
+                    <view class="date">发布日期：{{item.createtime}}</view>
+                </view>
+
+                <view class="line" wx:if="{{item.type_status == 2}}">
+                    <view class="fail">{{item.desc || '暂无驳回原因'}}</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+  
+  </van-tab>
+</van-tabs>

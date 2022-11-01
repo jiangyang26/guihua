@@ -1,0 +1,40 @@
+/* components/planlist/planlist.wxss */
+.item_plan>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  margin-top: 34rpx;
+  margin: 34rpx 0rpx 20rpx 0rpx;
+}
+.plan_list{
+  display: flex;
+  justify-content: space-between;
+}
+.item_plan{
+  display: flex;
+  flex-flow: column;
+  width: 128rpx;
+  height: 220rpx;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  padding: 24rpx 0rpx 20rpx 0rpx;
+  box-sizing: border-box;
+}
+.item_plan image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.item_plan .text1{
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #000000;
+}
+.item_plan .text2{
+  font-size: 20rpx;
+  font-weight: 500;
+  color: #333333;
+  /* margin-top: 20rpx; */
+}

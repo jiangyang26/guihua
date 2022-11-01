@@ -1,0 +1,5 @@
+<view class="case_share">
+  <image src="/user/start/allplan/caseleft.png" mode="widthFix"></image>
+  <text>案例分享</text>
+  <image src="/user/start/allplan/caseright.png" mode="widthFix"></image>
+</view>

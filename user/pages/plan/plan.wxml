@@ -1,0 +1,127 @@
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+
+<view class='view-page'>
+  <navbar page-name="全龄规划" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+  <view class='page-content'>
+    <view class="head_pic"><image src="{{banner[0].image}}" mode="widthFix"></image></view>
+    <view class="remind"><text>温馨提示：本项目仅为规划跟踪类产品，请谨慎选择，本平台不承担任何后果</text></view>
+    <view class="rectangle">
+      <text>请输入你计划实现目标的时长</text>
+      <text>(可为自己、孩子、家人、企业进行选择，目标可进行多选)</text>
+    </view>
+
+    <w-step title="第一步：选择规划人" />
+    <view class="planner">
+      <block wx:for="{{plannerList}}" wx:key="index">
+        <view class="item_pl" bindtap="handleCurrentSelect" data-index="{{index}}">
+          <image src="{{item.image}}" mode="widthFix"></image>
+          <text>{{item.title}}</text>
+          <view wx:if="{{index == currentPlanner}}" class="mark_box_">
+            <image src="/user/start/icon/select.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+    <w-step title="第二步：选择实现目标耗时" />
+    <view class="tag">
+      <view class="mark_v" bindtap="showPopup">按年龄计算</view>
+      <van-popup show="{{ isShow }}" bind:close="onClose" position="bottom">
+        <van-picker bind:confirm="tapConfirm" bind:cancel="tapCancel" columns="{{ ageList }}" show-toolbar="{{true}}" custom-class="custom_" visible-item-count="5"/>
+      </van-popup>
+      <view class="mark_v" bindtap="showPopupYear">按年计算</view>
+      <van-popup show="{{ yearIsShow }}" bind:close="onClose" position="bottom">
+        <van-picker bind:confirm="yearTapConfirm" bind:cancel="yearTapCancel" columns="{{ yearList }}" show-toolbar="{{true}}" custom-class="custom_" visible-item-count="5"/>
+      </van-popup>
+    </view>
+    <view wx:if="{{ageFlag}}" class="mark_two">
+      <view>
+        <view>目前年龄</view>
+        <text>{{optAgeList[0].text}}</text>
+      </view>
+      <view>
+        <view>实现目标年龄</view>
+        <text>{{optAgeList[1].text}}</text>
+      </view>
+    </view>
+    <view wx:if="{{yearFlag}}" class="mark_two">
+      <view>
+        <view>目前时间</view>
+        <text>{{optYearList[0].text}}</text>
+      </view>
+      <view>
+        <view>实现目标时间</view>
+        <text>{{optYearList[1].text}}</text>
+      </view>
+    </view>
+
+    <w-step title="第三步：选择计划实现的目标" />
+    <view class="choose_plan">
+      <view class="plan_top">
+        <view class="left">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange1" range="{{multiArray}}">
+            <view class="'left_view1 '+{{currentChoose==1?'active':''}}" bindtap="handleCurrentChoose" data-index="{{1}}">
+              <text class="mark_t">升学(学历)规划</text>
+            </view> 
+          </picker>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange5" range="{{multiArray1}}">
+            <view class="'left_view2 '+{{currentChoose==4?'active':''}}" bindtap="handleCurrentChoose" data-index="{{4}}">
+              <text class="mark_t">兴趣(能力)规划</text>
+            </view>
+          </picker>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange7" range="{{multiArray2}}">
+            <view class="'left_view3 '+{{currentChoose==7?'active':''}}" bindtap="handleCurrentChoose" data-index="{{7}}">
+              <text class="mark_t">企业及个人品牌IP提升规划</text>
+            </view>
+          </picker>
+        </view>
+        <view class="center">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange4" range="{{multiArray3}}">
+            <view class="'center_view1 '+{{currentChoose==2?'active':''}}" bindtap="handleCurrentChoose" data-index="{{2}}">
+              <text class="mark_t">个人成长规划</text>
+            </view>
+          </picker>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange3" range="{{multiArray4}}">
+            <view class="'center_view2 '+{{currentChoose==5?'active':''}}" bindtap="handleCurrentChoose" data-index="{{5}}">
+              <text class="mark_t">职场提升规划</text>
+            </view>
+          </picker>
+          <view class="'center_view3 '+{{currentChoose==8?'active':''}}" bindtap="handleCurrentChoose" data-index="{{8}}">
+            <text class="mark_t">其他</text>
+          </view>
+        </view>
+        <view class="right">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange2" range="{{multiArray5}}">
+            <view class="'right_view1 '+{{currentChoose==3?'active':''}}" bindtap="handleCurrentChoose" data-index="{{3}}">
+              <text class="mark_t">家庭成长规划</text>
+            </view>
+          </picker>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange6" range="{{multiArray6}}">
+            <view class="'right_view2 '+{{currentChoose==6?'active':''}}" bindtap="handleCurrentChoose" data-index="{{6}}">
+              <text class="mark_t">企业成长规划</text>
+            </view>
+          </picker>
+          <view class="right_view3"></view>
+        </view>
+      </view>
+      <view class="plan_bottom">
+        <textarea placeholder-class="plac_" value="{{targetValue}}" bindinput="changePlan3" placeholder="没有可自填"></textarea>
+      </view>
+    </view>
+    <w-step title="第四步(选填)：目前情况" />
+    <view class="current_situation">
+      <textarea placeholder-class="plac_" adjust-position="{{false}}" value="{{currentValue}}" bindinput="changePlan4" placeholder="填写目前情况">
+      </textarea>
+    </view>
+    <view class="fast_plan" bindtap="fastTap">发布规划</view>
+
+    <!-- 案例分享 -->
+    <case-share></case-share>
+    <view class="case_list_box">
+      <block wx:for="{{planCaseList}}" wx:key="this">
+        <image src="{{item.image}}" mode="widthFix" />
+      </block>
+    </view>
+  </view>
+</view>
+

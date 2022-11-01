@@ -1,0 +1,14 @@
+<view class="scan">
+  <view class="body">
+    <view class="title_box">
+      <text>长按即可扫码</text>
+      <text>添加客服</text>
+    </view>
+    <view class="pic">
+      <image show-menu-by-longpress="{{true}}" src="{{image}}" mode="widthFix"/>
+    </view>
+    <view class="bottom">
+      <view class="back" bindtap="back">返回</view>
+    </view>
+  </view>
+</view>

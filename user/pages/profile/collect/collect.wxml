@@ -1,0 +1,152 @@
+<wxs module="m1">
+  function workStatus(str) {
+    var status = ''
+    if(str == '1') {
+      status = '全职'
+    }
+    if(str == '2') {
+      status = '兼职'
+    }
+    return status
+  }
+
+  function rz(num) {
+    var str = ''
+    if(num == 0) {
+      str = '未'
+    }
+    if(num == 1) {
+      str = '已'
+    }
+    return str
+  }
+
+  function sliceStr(str, n, l) {
+    return str.slice(n, l)
+  }
+
+  function widthStyle(index) {
+    switch (index) {
+      case 0:
+        return 'width:226rpx';
+      case 1:
+        return 'width:216rpx';
+      case 2:
+        return 'width:216rpx';
+      case 3:
+        return 'width:176rpx';
+      case 4:
+        return 'width:266rpx';
+      case 5:
+        return 'width:216rpx';
+      case 6:
+        return 'width:240rpx';
+      default:
+        break;
+    }
+  }
+
+  module.exports = {
+    workStatus: workStatus,
+    sliceStr: sliceStr,
+    rz: rz,
+    widthStyle: widthStyle
+  }
+</wxs>
+
+<view class="collect">
+  <view class="collect_title">请选择类别</view>
+  <view class="collect_category">
+    <block wx:for="{{category}}" wx:key="this">
+      <picker mode="multiSelector" range="{{item.title}}" disabled="{{item.disabled}}" bindchange="changeTerritory">
+        <view class="'item_box '+{{currentIndex == index?'checked_':''}}" 
+              style="{{m1.widthStyle(index)}}"
+              bindtap="handleCategoryClick"
+              data-index="{{index}}">
+          <text>{{item.title[0][0]}}</text>
+        </view>
+      </picker>
+    </block>
+    <view class="mark_v"></view>
+  </view>
+
+  <view class="no_detail" wx:if="{{userPlanListInfo.length == 0}}">暂无收藏的规划师</view>
+
+  <view class="screen_list" wx:for="{{userPlanListInfo}}" wx:key="index" 
+        catchtap="toTeacherDetail" data-userplan_id="{{item.userplan_id}}">
+    <view class="screen_top">
+      <!-- 左侧头像头衔 -->
+      <view class="left_pic">
+        <view class="left_box">
+          <image src="{{item.avatar}}" mode="widthFix"></image>
+          <view class="pic_box">
+            <view class="center">{{m1.workStatus(item.work_status)}}</view>
+            <view class="bottom"><view>教龄{{item.times}}年</view></view>
+          </view>
+        </view>
+      </view>
+      <!-- 右侧信息 -->
+      <view class="right_view">
+        <!-- top -->
+        <view class="right_view_top item_screen">
+          <view class="badge_toast" wx:if="{{index == screenIndex}}">{{badgeToastText}}</view>
+
+          <view class="top_view1">{{m1.sliceStr(item.name, 0, 3)}}</view>
+          <view class="top_view2">
+            <view catchtap="badgeTapToast" data-text="{{m1.rz(item.bz_switch)}}支付保障金" data-index="{{index}}">
+              <image src="{{item.bz_switch == 1 ? '/user/start/icon/select_honor01.png' : '/user/start/icon/normal_honor01.png'}}"/>
+            </view>
+            <view catchtap="badgeTapToast" data-text="平台{{m1.rz(item.rz_switch)}}认证" data-index="{{index}}">
+              <image src="{{item.rz_switch == 1 ? '/user/start/icon/select_honor02.png' : '/user/start/icon/normal_honor02.png'}}"/>
+            </view>
+            <view catchtap="badgeTapToast" data-text="{{m1.rz(item.xf_switch)}}认证消费者承诺保障" data-index="{{index}}">
+              <image src="{{item.xf_switch == 1 ? '/user/start/icon/select_honor03.png' : '/user/start/icon/normal_honor03.png'}}"/>
+            </view>
+          </view>
+          <view class="top_view3"><text>立即交流</text></view>
+          <image catchtap="collTap" data-id="{{item.userplan_id}}" class="like_pic" src="{{item.iscoll == 1 ? '/user/start/icon/collect_s.png' : '/user/start/icon/collect_n.png'}}" mode="widthFix"/>
+        </view>
+
+        <!-- center -->
+        <view class="right_view_center">
+          <view>好评率 {{item.goods}}%</view>
+          <view>订单次数 {{item.nums}}</view>
+        </view>
+
+        <!-- bottom -->
+        <view class="right_view_bottom">
+          <view class="estimate_box">
+            <block wx:for="{{item.tags}}" wx:for-item="itemTags" wx:key="this">
+              <view class="estimate" catchtap="tagTap" data-tag="{{itemTags.tag}}" data-id="{{item.userplan_id}}">
+                <image class="es_bg" src="/user/start/tag/pic03.png" mode="widthFix"></image>
+                <text class="es_text">{{m1.sliceStr(itemTags.tag, 0, 2)}}</text>
+                <view class="es_box">
+                  <image src="/user/start/icon/praise.png" mode="widthFix"></image>
+                  <text>{{itemTags.num}}</text>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class="price_box">
+            <text>咨询费</text>
+            <text>{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="screen_bottom">
+      <view><text>擅长领域</text></view>
+      <view>
+        <block wx:if="{{item.info_tags[0] == ''}}">
+          <view style="width: 460rpx;color: #666666;">暂无擅长领域</view>
+        </block>
+        <block wx:for="{{item.info_tags}}" wx:for-item="itemTerritory" wx:key="this">
+          <view class="screen_bottom_box" wx:if="{{itemTerritory != ''}}">
+            <image class="screen_pic" src="/user/start/icon/unchecked.png" mode="widthFix"></image>
+            <view class="scroll_text_box">{{itemTerritory}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

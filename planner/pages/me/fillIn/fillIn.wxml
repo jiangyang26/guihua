@@ -1,0 +1,357 @@
+<!-- pages/me/fillIn/fillIn.wxml -->
+<wxs module="m1">
+  function statusFun(num) {
+    var str = ''
+    switch (num) {
+      case '0':
+        str = '未申请'
+        break;
+      case '1':
+        str = '申请待审核'
+        break;
+      case '2':
+        str = '审核未通过'
+        break;
+      case '3':
+        str = '审核通过'
+        break;
+    }
+    return str
+  }
+
+  module.exports = {
+    statusFun: statusFun
+  }
+</wxs>
+<view catchtouchmove="{{focus?true:''}}">
+    <view class="status_box">
+      <image wx:if="{{planInfo.status == '3'}}" src="/planner/start/icon/status_y.png" mode="widthFix"/>
+      <image wx:if="{{planInfo.status == '2'}}" src="/planner/start/icon/status_n.png" mode="widthFix"/>
+      <text style="{{planInfo.status == '2' ? 'color: red' : ''}}">{{m1.statusFun(planInfo.status)}}</text>
+      <text wx:if="{{planInfo.status == '2'}}" style="margin-left: 30rpx; color: red;">{{planInfo.audinfo || ''}}</text>
+    </view>
+    <view class="box">
+        <view class="userInfo_box">
+            <image class="userInfo_img" src="{{avatar}}" />
+            <view class="userInfo_code">平台ID编码：{{planInfo.plan_sn}}</view>
+        </view>
+        <view class="line">
+            <view class="left">姓名</view>
+            <view class="right_box right">
+                <text>{{info.name}}</text>
+                <view class="write flex" catchtap="onTap" data-type="name">点击录入</view>
+            </view>
+        </view>
+        <view class="line">
+            <view class="left">性别</view>
+            <view class="right_box right">
+                <text>{{sexArray[sexValue]}}</text>
+                <picker range="{{sexArray}}" bindchange="changeSex">
+                  <view class="write flex">点击选项</view>
+                </picker>
+            </view>
+        </view>
+        <view class="line">
+            <view class="left">籍贯</view>
+            <view class="right_box right">
+                <text>{{info.place}}</text>
+                <view class="write flex" catchtap="onTap" data-type="place">点击录入</view>
+            </view>
+        </view>
+          
+        <view class="line">
+            <view class="left">从事教育行业时长</view>
+            <view class="right_box right">
+                <text>{{info.times}}</text>
+                <view class="write flex" catchtap="onTap" data-type="times">点击录入</view>
+            </view>
+        </view>
+
+        <view class="line">
+            <view class="left">平台注册时间</view>
+            <view class="right">{{info.createtime}}</view>
+        </view>
+        <view class="line">
+            <view class="left">平台接单次数</view>
+            <view class="right">{{planInfo.nums != 0 ? planInfo.nums + '次' : '0次'}}</view>
+        </view>
+        <view class="line">
+            <view class="left">咨询费</view>
+            <view class="right">{{planInfo.price || '平台添加'}}</view>
+        </view>
+        <view class="select">
+            <view>性格标签</view>
+            <view class="tag_box" style="{{tagList.length==4?'justify-content: space-between;':''}}">
+                <view class="add flex add_box" wx:for="{{tagList}}" wx:key="this" 
+                        style="margin-right:24rpx"
+                        catchtap="onTap" data-index="{{index}}" data-type="updatetag">
+                    <text>{{item.tag}}</text>
+                    <van-icon name="cross" size="24rpx" catchtap="delTag" data-index="{{index}}"/>
+                </view>
+                <view wx:if="{{tagList.length != 3}}" class="add flex"  catchtap="onTap" data-type="addtag">
+                    <van-icon name="plus" color="#D8D8D8" size="28rpx" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="title">教育经历</view>
+    <view class="box">
+        <view class="line" catchtap="onTap" data-type="school">
+            <view class="left">最高学历毕业院校</view>
+            <view class="right blod right_text"><text>{{info.school || '输入毕业院校'}}</text></view>
+        </view>
+        <picker range="{{highestEducation}}" bindchange="changeHighestEducation">
+            <view class="line">
+                <view class="left">最高学历</view>
+                <view class="right blod">
+                    {{highestEducationValue == -1 ? '选择最高学历' : highestEducation[highestEducationValue]}}
+                </view>
+            </view>
+        </picker>
+        <picker range="{{currentState}}" bindchange="changeCurrentState">
+            <view class="line">
+                <view class="left">目前状态</view>
+                <view class="right blod">
+                    {{currentStateValue == -1 ? '选择目前状态' : currentState[currentStateValue]}}
+                </view>
+            </view>
+        </picker>
+        <picker range="{{rank}}" bindchange="changeRank">
+            <view class="line">
+                <view class="left">最高学历社会排名</view>
+                <view class="right blod">
+                    {{rankValue == -1 ? '选择社会排名' : rank[rankValue]}}
+                </view>
+            </view>
+        </picker>
+    </view>
+    <view class="title">曾获证书</view>
+    <view class="box">
+        <view class="line">
+            <picker mode="date" start="1980" end="2022" fields="year" bindchange="changeDate1">
+                <view class="left">{{dateValue1 || '点击选择年份'}}</view>
+            </picker>
+            <view class="right blod right_text" catchtap="onTap" data-type="certificate1">
+                <text>{{info.certificate1 || '请填写证书名称'}}</text>
+            </view>
+        </view>
+        <view class="line">
+            <picker mode="date" start="1980" end="2022" fields="year" bindchange="changeDate2">
+                <view class="left">{{dateValue2 || '点击选择年份'}}</view>
+            </picker>
+            <view class="right blod right_text" catchtap="onTap" data-type="certificate2">
+                <text>{{info.certificate2 || '请填写证书名称'}}</text>
+            </view>
+        </view>
+        <view class="line">
+            <picker mode="date" start="1980" end="2022" fields="year" bindchange="changeDate3">
+                <view class="left">{{dateValue3 || '点击选择年份'}}</view>
+            </picker>
+            <view class="right blod right_text" catchtap="onTap" data-type="certificate3">
+                <text>{{info.certificate3 || '请填写证书名称'}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="title">工作经历</view>
+    <view class="box">
+        <view class="line">
+            <picker mode="date" start="1980" end="2022" fields="year" bindchange="changeDate4">
+                <view class="left">{{dateValue4 || '点击选择年份'}}</view>
+            </picker>
+            <view class="right blod right_text" catchtap="onTap" data-type="work1">
+                <text>{{info.work1 || '请填写工作经历'}}</text>
+            </view>
+        </view>
+        <view class="line">
+            <picker mode="date" start="1980" end="2022" fields="year" bindchange="changeDate5">
+                <view class="left">{{dateValue5 || '点击选择年份'}}</view>
+            </picker>
+            <view class="right blod right_text" catchtap="onTap" data-type="work2">
+                <text>{{info.work2 || '请填写工作经历'}}</text>
+            </view>
+        </view>
+        <view class="line">
+            <picker mode="date" start="1980" end="2022" fields="year" bindchange="changeDate6">
+                <view class="left">{{dateValue6 || '点击选择年份'}}</view>
+            </picker>
+            <view class="right blod right_text" catchtap="onTap" data-type="work3">
+                <text>{{info.work3 || '请填写工作经历'}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="title">详细信息</view>
+    <view class="box">
+        <picker mode="region" bindchange="changeRegion" style="margin-top: 0px;">
+            <view class="line">
+                <view class="left">目前所在城市</view>
+                <view class="right blod">{{region || '选择目前所在城市'}}</view>
+            </view>
+        </picker>
+        <picker range="{{mode}}" bindchange="changeMode">
+            <view class="line">
+                <view class="left">可授课模式</view>
+                <view class="right blod">{{modeValue == -1 ? '选择可授课模式' : mode[modeValue]}}</view>
+            </view>
+        </picker>
+        <view class="select">
+            <view>擅长领域(最多可选三个类别)</view>
+        </view>
+        <view class="grow_box">
+            <block wx:for="{{territoryList}}" wx:key="this">
+                <picker mode="multiSelector" range="{{item.title}}" disabled="{{item.disabled}}" bindchange="changeTerritory">
+                  <view class="grow flex {{index == 0 || index == 4 || index == 5 ? 'ec' : 'ee'}}"
+                      style="{{item.active?'color: white; background: #5350D5;':''}}"
+                      bindtap="territoryTap" data-title="{{item.title[0][0]}}" data-index="{{index}}">
+                    {{item.title[0][0]}}
+                  </view>
+                </picker>
+            </block>
+            <input wx:if="{{isShowInput}}" type="text" placeholder="请输入其他擅长领域" 
+              maxlength="6" class="input_mark"
+              placeholder-style="font-size: 30rpx"/>
+        </view>
+        <view wx:if="{{territoryTag.length != 0}}" class="territory_tag_box">
+          <view class="item_box" wx:for="{{territoryTag}}" wx:key="this" >
+            <text>{{item.tag}}</text>
+            <van-icon name="cross" size="24rpx" catchtap="delTerritoryTag" data-index="{{index}}"/>
+          </view>
+        </view>
+        <picker range="{{mode}}" bindchange="changeMode1">
+            <view class="line">
+                <view class="left">工作模式</view>
+                <view class="right blod">{{modeValue1 == -1 ? '选择工作模式' : mode[modeValue1]}}</view>
+            </view>
+        </picker>
+        <view class="line">
+            <view class="left">是否有固定授课场地</view>
+            <view class="radio_box">
+                <view class="radio" bind:tap="radio" data-radio="1">
+                    <block wx:if="{{radio}}">
+                        <image src="/planner/start/icon/radio.png" />
+                    </block>
+                    <block wx:else>
+                        <view ></view>
+                    </block>
+                    是
+                </view>
+                <view class="radio" bind:tap="radio" data-radio="2">
+                    <block wx:if="{{!radio}}">
+                        <image src="/planner/start/icon/radio.png" />
+                    </block>
+                    <block wx:else>
+                        <view ></view>
+                    </block>
+                    否
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="title">
+        <view >可辅导时间</view>
+        <picker mode="multiSelector" range="{{multiTimeArray}}" bindchange="changeMulti">
+            <view class="btn flex">添加可辅导时间</view>
+        </picker>
+    </view>
+    <view class="table">
+        <view class="table_r table_tit">
+            <view class="table_th flex">星期</view>
+            <view class="table_td flex" style="margin-left:0;">时间</view>
+        </view>
+
+        <view wx:if="{{addArrObj.length == 0}}" class="table_r" style="height: 120rpx;display: flex;justify-content: center;">未添加可辅导时间</view>
+
+        <block wx:if="{{addArrObj.length != 0}}">
+            <view class="table_r" wx:for="{{addArrObj}}" wx:key="this">
+                <view class="table_th grey flex">{{item.week}}</view>
+                <view class="table_td">{{item.time}}</view>
+            </view>
+        </block>
+    </view>
+    <view class="title">个人自述</view>
+    <textarea placeholder="写上个人的简单信息吧！" value="{{descValue}}" bindinput="changeDesc"></textarea>
+    <view class="title">
+        <view >辅导成果<text style="font-size: 22rpx; color: #5f5f5f">(最多可添加5个)</text></view>
+        <view class="btn flex" bindtap="toAchievement">添加辅导成果</view>
+    </view>
+    <view class="table">
+        <view class="table_tlt">
+            <view class="table_th flex" style="width:106rpx;">时间</view>
+            <view class="table_th flex" style="width:106rpx;">学生姓名</view>
+            <view class="table_th flex" style="width:106rpx;">辅导类型</view>
+            <view class="table_th flex" style="width:134rpx;">学生情况</view>
+            <view class="table_th flex" style="width:122rpx;">辅导效果</view>
+            <view class="table_th flex" style="width:108rpx;">辅导时长</view>
+        </view>
+        <view wx:if="{{achievement.length == 0}}" class="table_r" style="height: 120rpx;display: flex;justify-content: center;">
+            未添加辅导成果
+        </view>
+
+        <block wx:if="{{achievement.length != 0}}">
+            <view class="table_row" wx:for="{{achievement}}" wx:key="this">
+                <view class="flex" style="width:106rpx;">{{item.date_}}</view>
+                <view class="flex" style="width:106rpx;">{{item.name}}</view>
+                <view class="flex" style="width:106rpx;">{{item.type_}}</view>
+                <view class="flex" style="width:134rpx;">{{item.situation}}</view>
+                <view class="flex" style="width:122rpx;">{{item.result_}}</view>
+                <view class="flex" style="width:108rpx;">{{item.time_}}</view>
+            </view>
+        </block>
+    </view>
+    <view class="title">
+        资料审核区
+    </view>
+    <view class="box">
+        <view class="select" style="margin-top:0;">
+            提交教师资格证（如有）
+            <view class="upload_box_flex">
+              <view class="image_box" wx:if="{{uploadImageArr[0].istrue == true}}" bindtap="uploadImage" data-index="0">
+                <image src="{{uploadImageArr[0].aliPath}}" mode="aspectFit" />
+              </view>
+
+              <view class="add file flex" bindtap="uploadImage" data-index="0" wx:else>
+                  <van-icon name="plus" color="#D8D8D8" size="28rpx" />
+              </view>
+            </view>  
+        </view>
+        <view class="select">
+            提交最高学历毕业证及学生证（如有）
+            <view class="upload_box_flex">
+              <view class="image_box" wx:if="{{uploadImageArr[1].istrue == true}}" bindtap="uploadImage" data-index="1">
+                <image src="{{uploadImageArr[1].aliPath}}" mode="aspectFit" />
+              </view>
+
+              <view class="add file flex" bindtap="uploadImage" data-index="1" wx:else>
+                  <van-icon name="plus" color="#D8D8D8" size="28rpx" />
+              </view>
+            </view>  
+        </view>
+        <view class="select">
+            提交已获证书奖励及其他文件
+            <view class="upload_box_flex">
+              <view class="image_box" wx:if="{{uploadImageArr[2].istrue == true}}" bindtap="uploadImage" data-index="2">
+                <image src="{{uploadImageArr[2].aliPath}}" mode="aspectFit" />
+              </view>
+
+              <view class="add file flex" bindtap="uploadImage" data-index="2" wx:else>
+                  <van-icon name="plus" color="#D8D8D8" size="28rpx" />
+              </view>
+            </view>  
+        </view>
+    </view>
+    <button class="flex" bindtap="submitTap">提交</button>
+    <view class="keyboard" wx:if="{{focus}}" catchtap="onCatch">
+        <view class="input_box" catchtap="catchT" style="bottom: {{height}}px;">
+            <input focus="{{focus}}" bindfocus="onFocus" bindblur="onBlur"
+                   bindinput="changeInput" adjust-position="{{false}}"/>
+            <view class="flex" catchtap="onCatch">完成</view>
+        </view>
+    </view>
+
+    <view class="keyboard" wx:if="{{focus_number}}" catchtap="onCatch">
+        <view class="input_box" catchtap="catchT" style="bottom: {{height}}px;">
+            <input focus="{{focus_number}}" bindfocus="onFocus" bindblur="onBlur" type="digit"
+                   bindinput="changeInput" adjust-position="{{false}}" maxlength="3"/>
+            <view class="flex" catchtap="onCatch">完成</view>
+        </view>
+    </view>
+</view>

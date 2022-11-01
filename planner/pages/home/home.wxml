@@ -1,0 +1,242 @@
+<!-- pages/home/home.wxml -->
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+<view class='view-page' style="height: {{navHeight}}px;position: fixed; top: 0;left: 0;right: 0;z-index: 100;">
+  <navbar page-name="首页" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+</view>
+<view style="margin-top: {{navHeight}}px;padding-bottom: 200rpx;box-sizing: border-box;">
+  <view class="banner">
+      <image src="{{banner[0].image}}" mode="widthFix"/>
+  </view>
+  <view class="button_switch_box">
+      <view class="title_box">鲸选大数据</view>
+      <image src="/planner/start/image/buttom_switch.png" bindtap="toUser"  mode="widthFix"></image>
+  </view>
+  <view class="grod">
+      <block wx:for="{{planList}}" wx:key="this">
+        <view>
+          <view class="num">{{item.counter}}</view>
+          <image src="{{item.image}}" />
+          <view class="text">{{item.title}}</view>
+        </view>
+      </block>
+  </view>
+  <view class="imgbox">
+      <view class="left flex" bindtap="toTemplateClass">
+          <image src="/planner/start/image/img_1.png" />
+          <view class="signUp flex">点击报名</view>
+      </view>
+      <view class="right">
+          <view class="gradient" bindtap="toUserPlanInfo">
+              <view>乐规乐划·全龄规划平台</view>
+              <view>规划师成长体系</view>
+          </view>
+          <view class="right_bottom" bindtap="toSelectClass">
+              <image src="/planner/start/image/img_2.png" />
+              <view class="title">2022·要火</view>
+              <view class="text">成就更好的自己</view>
+              <view class="text">讲师个人IP打造线下营</view>
+              <view class="check flex">点击查看</view>
+          </view>
+      </view>
+      <view class="bottom">
+          <image src="/planner/start/image/img_3.png" />
+          <view class="title">乐规乐划·企业讲师</view>
+          <navigator hover-class="none" url="/planner/pages/home/teacher/teacher?title=查看哪些企业需要讲师" class="btn flex">查看哪些企业需要讲师<image src="/planner/start/icon/right.png" /></navigator>
+      </view>
+      <view class="mark_img_">
+          <view bindtap="toTeacher_" style="position: relative;">
+              <image src="/planner/start/image/img_4.png" />
+              <view class="po_m po_m_2">
+                <view class="text" style="color:#1B63E0;">提高个人社会背书</view>
+                <view class="planhome_arrow">
+                    <text style="color: #666666; margin-top: 18rpx;">查看哪些学校{{'\n'}}活动需要讲师</text>
+                    <image src="/planner/start/icon/planhome_arrow.png" />
+                </view>
+              </view>
+          </view>
+          <view >
+              <image src="/planner/start/image/img_5.png" />
+              <view class="po_m po_m_3" style="color:#CC4B5A;">城市监管政策</view>
+          </view>
+          <view bindtap="toSignUp">
+              <image src="/planner/start/image/img_6.png" />
+              <view class="po_m" style="color:#E99900;">资格证培训团报</view>
+          </view>
+      </view>
+  </view>
+  <block wx:if="{{terrTagList.length != 0}}">
+    <view class="title_box mark_box">我的擅长领域</view>
+    <view class="terr_box" style="{{terrTagList.length == 3 ? 'justify-content: space-between;' : '  margin-right: 20rpx;'}}">
+      <block wx:for="{{terrTagList}}" wx:key="this">
+        <view class="selected flex">{{item}}</view>
+      </block>
+    </view>
+  </block>
+  <view class="grid_box">
+      <view class="cate_box">
+        <view class="default flex" bindtap="collScreenTap" data-status="1">
+            <text>规划类{{'\n'}}订单线索</text>
+        </view>
+        <view class="default flex" bindtap="collScreenTap" data-status="2">
+            <text>快速发布{{'\n'}}订单线索</text>
+        </view>
+      </view>
+      <view class="grid">
+          <block wx:for="{{category}}" wx:key="this">
+            <picker mode="multiSelector" range="{{item.title}}" disabled="{{item.disabled}}" bindchange="changeTerritory">
+              <view class="flex {{(index==0||index==4||index==5?'ec':'f5')}} {{currentIndex == index?' checked_':''}}" 
+                    bindtap="handleCategoryClick"
+                    data-index="{{index}}">
+                <text>{{item.title[0][0]}}{{(index==6||index==7)?'':'\n'}}（{{item.num}}）</text>
+              </view>
+            </picker>
+          </block>
+      </view>
+  </view>
+  <view class="dropDown">
+      <view class="title">筛选</view>
+      <picker range="{{options}}" bindchange="changeScree">
+        <view class="plansx">{{options[value] || '请选择授课模式'}}<image src="/planner/start/icon/down.png" mode="widthFix"/></view>
+      </picker>
+  </view>
+  <view class="menu_sele">
+      <block wx:for="{{screenArr}}" wx:key="this">
+        <view bind:tap="onTap" data-index="{{index}}" class="{{item.active == true?'active':''}}">{{item.title}}</view>
+      </block>
+  </view>
+  <view wx:if="{{statusInfo.status != '3' || statusInfo.bz_switch != 1}}" 
+        class="no_detail" style="font-size: 0; display: flex;">
+    <image src="/planner/start/image/no_detail.png" mode="widthFix" style="width: 48rpx;height: 48rpx;margin-top: 6rpx;"/>
+    <text style="font-size: 30rpx; font-weight: bold; margin-bottom: 300rpx;">请先完成资料审核并缴纳保证金，<br/>完成上述流程后自动开放规划线索。</text>
+  </view>
+  <view wx:if="{{statusInfo.status == '3' && statusInfo.bz_switch == 1}}">
+    
+    <view class="no_detail" wx:if="{{planInfoList.length == 0 && fastInfoList.length == 0}}">暂无规划订单</view>
+    <block wx:if="{{planInfoList.length != 0}}">
+      <view class="gh_title">规划类订单举例</view>
+        <view class="gh_box" wx:for="{{planInfoList}}" wx:key="this" catchtap="toPlanDetail" data-plan_id="{{item.id}}">
+            <view class="head">
+                <view>
+                    <view>线索{{item.id}}</view>
+                    <view class="flex" wx:if="{{item.type_status == '1'}}">
+                        <view>可接</view>
+                    </view>
+                    <view class="flex" wx:if="{{item.type_status == '2'}}">
+                        <view>成单</view>
+                    </view>
+                    <view class="flex" wx:if="{{item.type_status == '3'}}">
+                        <view>即将失效</view>
+                    </view>
+                </view>
+                <view catchtap="addCollTap" data-id="{{item.id}}" data-index="{{index}}" data-iscoll="{{item.iscoll}}">
+                    <image src="{{item.iscoll == 0 ? '/planner/start/icon/collect_n.png' : '/planner/start/icon/collect_s.png'}}" />
+                    {{item.iscoll == 0 ? '未收藏' : '已收藏'}}
+                </view>
+            </view>
+
+            <view class="body">
+                <view class="line">
+                    <view class="td">需求类型</view>
+                    <view class="th">{{item.type}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">目标耗时</view>
+                    <view class="th">{{item.ql_times}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">规划目标</view>
+                    <view class="th">{{item.ql_info}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">目前情况</view>
+                    <view class="th">{{item.ql_type || '暂无'}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">其他要求</view>
+                    <view class="th">{{item.ql_desc || '暂无'}}</view>
+                </view>
+            </view>
+            <view class="footer">
+                <view class="order">
+                    <view>{{item.look}} 浏览量</view>
+                    <view>{{item.coll}} 收藏量</view>
+                    <view>{{item.leaving}} 沟通量</view>
+                </view>
+                <view class="contact flex" catchtap="toMessageDetaiil" data-type="home" 
+                      data-user_id="{{item.user_id}}" data-id="{{item.id}}" data-name="{{item.nickname}}">
+                  联系对方
+                </view>
+            </view>
+            
+        </view>
+    </block>
+
+    <block wx:if="{{fastInfoList.length != 0}}">
+      <view class="gh_title">快速发布线索举例</view>
+        <view class="gh_box" wx:for="{{fastInfoList}}" wx:key="this" catchtap="toFastDetail" data-plan_id="{{item.id}}">
+            <view class="head">
+                <view>
+                    <view>线索{{item.id}}</view>
+                    <view class="flex" wx:if="{{item.type_status == '1'}}">
+                        <view>可接</view>
+
+                    </view>
+                    <view class="flex" wx:if="{{item.type_status == '2'}}">
+                        <view>成单</view>
+                    </view>
+                    <view class="flex" wx:if="{{item.type_status == '3'}}">
+                        <view>即将失效</view>
+                    </view>
+                </view>
+                <view catchtap="addCollTap" data-id="{{item.id}}" data-index="{{index}}" data-iscoll="{{item.iscoll}}">
+                    <image src="{{item.iscoll == 0 ? '/planner/start/icon/collect_n.png' : '/planner/start/icon/collect_s.png'}}" />
+                    {{item.iscoll == 0 ? '未收藏' : '已收藏'}}
+                </view>
+            </view>
+            <view class="body">
+                <view class="line">
+                    <view class="td">姓名</view>
+                    <view class="th">{{item.ks_name}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">联系方式</view>
+                    <view class="th">{{item.ks_mobile}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">招募类型</view>
+                    <view class="th">{{item.type}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">授课形式</view>
+                    <view class="th" style="font-weight:400;">{{item.ks_status}}</view>
+                </view>
+                <view class="line">
+                    <view class="td">课酬范围</view>
+                    <view class="th" style="font-weight:400;">
+                        <view class="time flex" style="background-color: #5350D5;color: #fff">
+                          {{item.ks_price}}/小时
+                        </view>
+                    </view>
+                </view>
+                <view class="line">
+                    <view class="td">其他要求</view>
+                    <view class="th" style="color:#999999;font-weight:400;font-size:26rpx;">
+                        {{item.ks_desc}}
+                    </view>
+                </view>
+            </view>
+            <view class="footer">
+                <view class="order">
+                  <view>{{item.look}} 浏览量</view>
+                  <view>{{item.coll}} 收藏量</view>
+                  <view>{{item.leaving}} 沟通量</view>
+                </view>
+                <view class="contact flex" catchtap="toMessageDetaiil" data-type="home" 
+                      data-user_id="{{item.user_id}}" data-id="{{item.id}}">联系对方</view>
+            </view>
+        </view>
+    </block>
+
+  </view>
+</view>

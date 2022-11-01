@@ -1,0 +1,30 @@
+<!--pages/login/account/account.wxml-->
+<view class='view-page'>
+  <navbar page-name="{{title}}" bg-color="rgba(0,0,0,0)"></navbar>
+  <view class='page-content'>
+    <view class="title">{{title}}</view>
+    <!-- <form bindsubmit="onSubmit"> -->
+        <view class="input">
+            <view class="area_code flex">+86</view>
+            <input placeholder="请输入手机号码" always-embed="{{true}}" placeholder-class="place" />
+        </view>
+        <view class="input">
+            <input placeholder="请输入验证码" always-embed="{{true}}" placeholder-class="place" />
+            <view class="code">获取验证码</view>
+        </view>
+        <view class="input">
+            <input placeholder="请输入密码" always-embed="{{true}}" placeholder-class="place" />
+        </view>
+        <view class="input">
+            <input placeholder="请再次输入密码" always-embed="{{true}}" placeholder-class="place" />
+        </view>
+        <button form-type="submit" class="flex">注册</button>
+    <!-- </form> -->
+    <view class="background">
+        <image src="/assets/image/background.png" />
+    </view>
+    <view class="registe">
+        <image src="/assets/image/registe_bgd.png"></image>
+    </view>
+  </view>
+</view>

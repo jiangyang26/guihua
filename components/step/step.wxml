@@ -1,0 +1,3 @@
+<view class="step">
+  <text>{{title}}</text>
+</view>

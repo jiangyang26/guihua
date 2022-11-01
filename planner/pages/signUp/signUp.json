@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "scan": "./../seleClass/scan/scan"
+  },
+  "navigationBarTitleText": "团购报名(会员专享)"
+}

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "w-swiper": "/components/swiper/swiper",
+    "w-nav": "/components/nav/nav",
+    "plan-list": "/components/planlist/planlist",
+    "w-pagination": "/components/pagination/pagination"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "onReachBottomDistance": 50
+
+}

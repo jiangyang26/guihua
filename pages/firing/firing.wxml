@@ -1,0 +1,3 @@
+<view class="firing">
+  <image src="{{banner[0].image}}" mode="widthFix"></image>
+</view>

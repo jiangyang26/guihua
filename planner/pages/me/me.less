@@ -1,0 +1,159 @@
+@import '../../template/index.wxss';
+page {
+    height: 100%;
+    background-color: #FAFCFF;
+}
+.userInfo_box{
+    margin: 38rpx 0 0 0;
+    display: flex;
+    height: 144rpx;
+    .userInfo_img{
+        width: 144rpx;
+        height: 144rpx;
+        border-radius: 50%;
+    }
+    .userInfo{
+        margin: 0 0 0 24rpx;
+        padding: 20rpx 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .userInfo_name{
+            font-size: 36rpx;
+            font-weight: 500;
+            color: #3C2B1C;
+        }
+        .userInfo_title{
+            font-weight: 500;
+            font-size: 26rpx;
+            color: #999999;
+        }
+    }
+    .userInfo_vip{
+        padding: 20rpx 0;
+        display: flex;
+        .icon_box{
+            height: 54rpx;
+            border: 1px solid #fff;
+        }
+        .mark_box{
+            height: 108rpx;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            .mark_b{
+                border-radius: 16rpx;
+                height: 54rpx;
+                padding: 0rpx 10rpx;
+                background-color: #EFEFFF;
+                color: #5350D5;
+                font-size: 24rpx;
+                font-weight: 400;
+            }
+            .vip_time{
+                height: 44%;
+                color: #fff;
+                font-size: 20rpx; 
+                border: 1px solid;
+                border-radius: 16rpx;
+                background-color: #CCCCCC;
+            }
+        }
+        .icon{
+            width: 48rpx;
+            height: 48rpx;
+        }
+        .vip_box{
+            margin-left: 20rpx;
+            width: 176rpx;
+            height: 108rpx;
+            border-radius: 16rpx;
+            border: 1px solid #E2E1FF;
+            .vip{
+                height: 54rpx;
+                background-color: #EFEFFF;
+                border-radius: 16rpx 16rpx 0 0;
+                color: #5350D5;
+                font-size: 24rpx;
+                font-weight: 400;
+            }
+            .vip_time{
+                height: 50%;
+                color: #999999;
+                font-size: 20rpx;
+            }
+        }
+    }
+}
+.medal_box{
+    margin-top: 48rpx;
+    display: flex;
+    box-shadow: 0 0 16rpx 2rpx rgba(0,0,0,0.1);
+    border-radius: 16rpx 16rpx 16rpx 16rpx;
+    padding: 12rpx 0rpx;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-evenly;
+    .grod{
+        // margin-right: 16rpx;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #666666;
+        font-size: 20rpx;
+        image{
+            width: 56rpx;
+            height: 56rpx;
+        }
+    }
+    .text{
+        width: 80rpx;
+        font-size: 26rpx;
+        color: #999999;
+        letter-spacing: 2rpx;
+        display: flex;
+        flex-flow: column;
+        text{
+            border-left: 1px solid;
+            padding-left: 14rpx;
+            box-sizing: border-box;
+        }
+    }
+}
+.title_box{
+    margin-top: 18rpx;
+}
+.function_box{
+    margin-top: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    .contact_box{
+        position: relative;
+    }
+    .grod{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #333333;
+        font-size: 26rpx;
+        font-weight: bold;
+        margin-bottom: 48rpx;
+        image{
+            margin-bottom: 30rpx;
+            width: 152rpx;
+            height: 136rpx;
+            box-shadow: 0rpx 6rpx 12rpx 4rpx rgba(0,0,0,.1);
+            border-radius: 24rpx;
+        }
+        .contact_button{
+            position: absolute;
+            top: 0rpx;
+            left: 0rpx;
+            width: 172rpx;
+            height: 204rpx;
+            background-color: rgba(0,0,0,0);
+        }
+    }
+}

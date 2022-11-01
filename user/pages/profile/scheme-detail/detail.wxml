@@ -1,0 +1,9 @@
+<view class="scheme_detail">
+
+  <view class="no_detail" wx:if="{{detailList.length == 0}}">暂无详情</view>
+  <view class="plan_box" wx:for="{{detailList}}" wx:key="this">
+    <text>{{item.name}}</text>
+    <image src="{{surfaceImage}}" mode="widthFix" catch:tap="imageTap" data-image="{{item.image}}"/>
+  </view>
+
+</view>

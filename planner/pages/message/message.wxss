@@ -1,0 +1,96 @@
+page {
+  height: 100%;
+  background-color: #FAFCFF;
+}
+.banner {
+  position: relative;
+  margin: 0 auto;
+  width: 690rpx;
+  height: 400rpx;
+}
+.banner > image {
+  width: 100%;
+  height: 100%;
+}
+.banner > view {
+  position: absolute;
+  top: 180rpx;
+  right: 74rpx;
+  font-size: 32rpx;
+  color: #271BA1;
+  background-color: #fff;
+  padding: 14rpx 48rpx;
+  border-radius: 54rpx;
+}
+.sticky {
+  margin-top: 56rpx;
+  margin-bottom: 40rpx;
+  background-color: #FAFCFF;
+}
+.mark_pic {
+  width: 48rpx;
+  height: 48rpx;
+}
+.right_message > view:last-child {
+  font-size: 0;
+}
+.right_message > view:last-child > view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right_message > view:last-child > text {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #666666;
+}
+.right_message > view:first-child > text:last-child {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #666666;
+}
+.right_message > view:first-child > text:first-child {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #333333;
+}
+.right_message > view:first-child,
+.right_message > view:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile_message {
+  position: relative;
+  display: flex;
+  height: 144rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.left_pic image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  box-shadow: 0px 6px 10px #b6b6b6;
+}
+.right_message {
+  height: 144rpx;
+  flex: 1;
+  margin-left: 32rpx;
+  display: flex;
+  flex-flow: column;
+  padding: 24rpx 32rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+}
+
+.message_red{
+  position: absolute;
+  top: 6rpx;
+  right: 6rpx;
+  width: 30rpx;
+  height: 30rpx;
+}

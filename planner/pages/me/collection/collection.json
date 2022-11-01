@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
+  },
+  "navigationBarTitleText": "发起协议及收款"
+}

@@ -1,0 +1,98 @@
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+<view class="fast">
+  <view class="fast_scroll">
+    <view class="fast_body">
+      <!-- 头部图片 -->
+      <view class="head_bgd">
+        <image src="/user/start/quicksd/bgd01.png" mode="widthFix"></image>
+        <text class="fast_mark">快速发布</text>
+      </view>
+      <!-- 内容 -->
+      <view class="body_detail">
+        <view class="item_message">
+          <view><text>姓名</text></view>
+          <input type="text" value="{{paramsInfo.name}}" placeholder-style="color:#999999;font-size:26rpx;" bindinput="changeName" placeholder="请填写你的姓名"/>
+        </view>
+        <w-lines></w-lines>
+        <!-- 联系方式 -->
+        <view class="item_message">
+          <view><text>联系方式</text></view>
+          <input type="number" maxlength="{{11}}" value="{{paramsInfo.phone}}" placeholder-style="color:#999999;font-size:26rpx;" bindinput="changePhone" placeholder="请填写你的手机号"/>
+        </view>
+        <w-lines></w-lines>
+        <!-- 招募类型 -->
+        <view class="item_message">
+          <view><text>招募类型</text></view>
+        </view>
+        <view class="aaaa">
+          <view class="recruit">
+            <block wx:for="{{recruit}}" wx:key="this">
+              <picker mode="multiSelector" range="{{item.title}}" disabled="{{item.disabled}}" bindchange="changeRecruit">
+                <view class="recruit_box {{recruitIndex == index ? 'active' : ''}}"
+                    bindtap="tapHandler"
+                    data-index="{{index}}"
+                    style="color: #333;">
+                  <view>{{item.title[0][0]}}</view>
+                  <view wx:if="{{recruitIndex == index}}"><image src="/user/start/quicksd/select.png"></image></view>
+                  <view wx:else><image src="/user/start/quicksd/unchecked.png"></image></view>
+                </view>
+              </picker>
+            </block>
+          </view>
+        </view>
+        <view class="checked_category">{{checkedCategory}}</view>
+        <!-- 授课形式 -->
+        <view class="give">
+          <view class="title_">授课形式</view>
+          <picker mode="selector" range="{{array}}" bindchange="changeGive">
+            <view class="give_box">
+              <view>{{array[index] || '请选择授课形式'}}</view>
+              <view><image src="/user/start/icon/down.png" mode="widthFix"></image></view>
+            </view>
+          </picker>
+        </view>
+        <view wx:if="{{index == 1 || index == 2}}" 
+              style="height: 50rpx;display: flex;align-items: center;font-size: 32rpx;">
+          <view class="title_"></view>
+          <input style="font-size: 28rpx" type="text" value="{{paramsInfo.address}}" bindinput="changeAddress" placeholder="请输入线下地址" placeholder-style="font-size: 28rpx" />
+        </view>
+        <w-lines></w-lines>
+        <!-- 课酬范围 -->
+        <view class="kc">
+          <view class="title_box_"><text>课酬范围</text></view>
+          <view class="reward">
+            <view class="reward_box">
+              <view class="input_box_kc item_box input {{currentIndex == 1 ? 'mark_': ''}}" bindtap="activeTap" data-index="1">
+                <input type="text" placeholder="{{value != '' ? '' : '预计课酬'}}" bindinput="changeInput"
+                placeholder-style="{{currentIndex == 1 ? 'color: #FFFFFF;': 'color: #666666;'}}" value="{{value}}" type="number"/>
+              </view>
+              <text class="dw_text">/次</text>
+              <view class="item_box {{currentIndex == 2 ? 'mark_': ''}}" bindtap="activeTap" data-index="2">
+                <text>面议</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <w-lines></w-lines>
+        <!-- 其他要求 -->
+        <view class="other">
+          <view><text>其他要求</text></view>
+          <view class="other_box">
+            <textarea placeholder="可以输入孩子的目前情况，需要达成什么目标，对老师的各类要求和期待" 
+                      placeholder-class="place" maxlength="-1" bindinput="changeOther" value="{{paramsInfo.other}}"></textarea>
+          </view>
+        </view>
+        <view class="publish" bindtap="fastTap"><text>发布</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+  <input type="text" focus="{{focus}}" bindinput="changeAddress" style="font-size: 30rpx;"
+          maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+          adjust-position="{{false}}" placeholder="请输入线下地址" placeholder-style="font-size: 30rpx"/>
+  <view><button size="mini">确定</button></view>
+</view> -->

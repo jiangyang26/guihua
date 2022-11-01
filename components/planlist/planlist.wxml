@@ -1,0 +1,7 @@
+<view class="plan_list">
+  <view class="item_plan" wx:for="{{planList}}" wx:key="index">
+    <text class="text1">{{item.counter}}</text>
+    <view><image src="{{item.image}}" mode="widthFix"></image></view>
+    <text class="text2">{{item.title}}</text>
+  </view>
+</view>

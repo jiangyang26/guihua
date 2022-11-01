@@ -1,0 +1,151 @@
+<!-- pages/me/me.wxml -->
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+
+<view class='view-page' style="height: {{navHeight}}px;position: fixed; top: 0;left: 0;right: 0;z-index: 100;">
+  <navbar page-name="个人中心" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+</view>
+<view style="margin-top: {{navHeight}}px;padding-bottom: 200rpx;box-sizing: border-box;">
+  <import src="../../template/index.wxml" />
+  <template is="banners" data="{{banner}}"></template>
+  <view class="userInfo_box" catchtap="pageTap" catchtouchmove="{{toastmove?'touchEvent':''}}">
+      <image class="userInfo_img" src="{{userInfo.avatar}}" />
+      <view class="userInfo">
+          <view class="userInfo_name">{{planInfo.name || userInfo.nickname}}</view>
+          <view class="userInfo_title">{{planInfo.rz_name || '暂无认证'}}</view>
+      </view>
+      <view class="userInfo_vip">
+        
+          <view class="mark_box">
+              <view class="flex mark_b" 
+                    style="{{planInfo.xf_switch == 0 ? 'background-color: #CCCCCC;color: white;' : 'background-color: #EFEFFF;color: #5350D5;'}}">
+                  消费者保障
+              </view>
+              <view class="vip_time flex"
+                    style="{{planInfo.bz_switch == 0 ? 'background-color: #CCCCCC;color: white;' : 'background-color: #EFEFFF;color: #5350D5;'}}">
+                保证金
+              </view>
+          </view>
+          <view class="vip_box mark_vip">
+              <view class="vip flex vip_box_contact">
+                  <image class="icon" src="/planner/start/icon/icon_vip.png" style="margin-right:12rpx" />
+                  {{planInfo.vip_switch == 0 ? '立即咨询' : '立即续费'}}
+                  <button class="contact_vip_button" open-type="contact"></button>
+              </view>
+              <view class="vip_time flex">{{planInfo.vip_switch == 0 ? '暂不是平台会员' : planInfo.vip_times}}</view>
+              <van-transition show="{{show}}">
+                <view class="mark_s"></view>
+                <view class="vip_toast">
+                  <view class="text_" style="{{orientation}}:{{marqueeDistance+'px'}};font-size:{{size+'px'}}">
+                    {{text}}
+                  </view>
+                </view>
+              </van-transition>
+          </view>
+      </view>
+  </view>
+  <wxs module="m1">
+    function imageIsSelect(img, name, _is) {
+      var str = ''
+      if(name == '登陆达人') {
+        str = (_is == 0 ? '/planner/start/icon/no_m1.png' : img)
+      }
+      if(name == '规划大师') {
+        str = (_is == 0 ? '/planner/start/icon/no_m5.png' : img)
+      }
+      if(name == '讲师大师') {
+        str = (_is == 0 ? '/planner/start/icon/no_m6.png' : img)
+      }
+      if(name == '订单大师') {
+        str = (_is == 0 ? '/planner/start/icon/no_m4.png' : img)
+      }
+      if(name == '咨询大师') {
+        str = _is == 0 ? '/planner/start/icon/no_m3.png' : img
+      }
+      if(name == '新手通关') {
+        str = _is == 0 ? '/planner/start/icon/no_m2.png' : img
+      }
+
+      return str
+    }
+
+    module.exports = {
+      imageIsSelect: imageIsSelect
+    }
+  </wxs>
+  <view class="medal_box pt_medal">
+    
+      <view class="toast_gz" wx:if="{{toastmove}}">
+        <view class="toast_text">{{toast_text}}</view>
+      </view>
+
+      <view class="grod_box" style="justify-content: space-between;">
+        <block wx:for="{{badgeInfo.badge0}}" wx:key="this">
+          <view class="grod" catchtap="medalTap" data-index="{{index}}">
+            <image src="{{m1.imageIsSelect(item.image, item.name, item.istrue)}}" />
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+
+      <view class="text">
+        <text>平台\n勋章</text>
+      </view>
+  </view>
+  <view catchtap="pageTap" catchtouchmove="{{toastmove?'touchEvent':''}}">
+    <view class="medal_box" style="margin-top:16rpx;">
+        <view class="grod_box">
+          <block wx:for="{{badgeInfo.badge1}}" wx:key="this">
+            <view class="grod mark_grod">
+              <image src="{{item.image}}" />
+              {{item.name}}
+            </view>
+          </block>
+        </view>
+        <view class="text">
+            <text>职业\n勋章</text>
+        </view>
+    </view>
+    <view class="title_box">
+        常用功能
+    </view>
+    <view class="function_box">
+        <navigator hover-class="none" url="/planner/pages/me/fillIn/fillIn" class="grod">
+            <image src="/planner/start/icon/me_1.png"  />
+            个人信息录入
+        </navigator>
+        <view class="grod" catchtap="uploadTap">
+            <image src="/planner/start/icon/me_2.png"/>
+            上传个人简历
+        </view>
+        <navigator hover-class="none" url="/planner/pages/me/Collect/clues" class="grod">
+            <image src="/planner/start/icon/me_3.png"  />
+            收藏的线索
+        </navigator>
+        <navigator hover-class="none" url="/planner/pages/me/Earnings/record" class="grod">
+            <image src="/planner/start/icon/me_4.png"  />
+            收益记录
+        </navigator>
+        <view class="grod contact_box">
+            <image src="/planner/start/icon/me_5.png"  />
+            我的VIP客服
+            <button class="contact_button" open-type="contact"></button>
+        </view>
+        <navigator hover-class="none" url="/planner/pages/me/star/index" class="grod">
+            <image src="/planner/start/icon/me_6.png"  />
+            成为签约明星
+        </navigator>
+        <navigator hover-class="none" url="/planner/pages/me/collection/collection" class="grod">
+            <image src="/planner/start/icon/me_7.png"  />
+            发起协议
+            <!-- <view >协议及收款</view> -->
+        </navigator>
+        <navigator hover-class="none" url="/planner/pages/me/order/order" class="grod">
+            <image src="/planner/start/icon/me_8.png"  />
+            我的订单
+            <!-- <view >(平台发起)</view> -->
+        </navigator>
+    </view>
+  </view>
+</view>
+

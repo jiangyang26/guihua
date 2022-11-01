@@ -1,0 +1,44 @@
+<!--pages/login/login.wxml-->
+<view class="login_title">一个账号可俩角色互通</view>
+<view class="login_subtitle"> (请选择角色进行登录)</view>
+<view class="box">
+    <view class="head">
+        <view class="flex" bindtap="roleTap" data-index="1">
+            <view class="userInfo_img flex" style="{{currentIndex == 1 ? 'border: 3px solid #93d2ff': 'border: 3px solid #5C69E0'}}">
+                <image src="/assets/image/student.png" />
+            </view>
+            <view class="identity">我是用户</view>
+        </view>
+        <view class="flex" bindtap="roleTap" data-index="2">
+            <view class="userInfo_img flex" style="{{currentIndex == 2 ? 'border: 3px solid #93d2ff': 'border: 3px solid #5C69E0'}}">
+                <image src="/assets/image/teacher.png" />
+            </view>
+            <view class="identity">我是规划师</view>
+        </view>
+        <view class="line"></view>
+    </view>
+    <view class="body">
+        <!-- <view class="title">账号</view>
+        <view class="input">
+            <input placeholder="请输入账号" />
+        </view>
+        <view class="title">密码</view>
+        <view class="input">
+            <input password placeholder="请输入密码" />
+        </view>
+        <view class="account">
+            <navigator open-type="navigate" hover-class="none" url="./account/account?title=忘记密码">忘记密码？</navigator>
+            <navigator open-type="navigate" hover-class="none" url="./account/account?title=注册">还没有账号？去注册</navigator>
+        </view> -->
+    </view>
+</view>
+<view class="agreement">
+    <van-checkbox value="{{ checked }}" bind:change="onChange" icon-size="32rpx"></van-checkbox>
+    <view >登陆默认<text>《用户协议》《代收代付监管协议》《讲师入驻协议》《用户发布信息平台免责声明》</text></view>
+</view>
+<button wx:if="{{userInfoShow}}" class="flex" bindtap="onTap">登录</button>
+<button wx:else class="flex" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
+<view class="background">
+    <image src="/assets/image/background.png" />
+</view>
+

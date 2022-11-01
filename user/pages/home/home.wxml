@@ -1,0 +1,224 @@
+<wxs module="m1">
+  function workStatus(str) {
+    var status = ''
+    if(str == '1') {
+      status = '全职'
+    }
+    if(str == '2') {
+      status = '兼职'
+    }
+    return status
+  }
+
+  function rz(num) {
+    var str = ''
+    if(num == 0) {
+      str = '未'
+    }
+    if(num == 1) {
+      str = '已'
+    }
+    return str
+  }
+
+  function sliceStr(str, n, l) {
+    return str.slice(n, l)
+  }
+
+  module.exports = {
+    workStatus: workStatus,
+    sliceStr: sliceStr,
+    rz: rz
+  }
+</wxs>
+
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+<view class="home">
+  <image class="mark_image" mode="widthFix" src="/user/start/home/bgd.png"></image>
+  <view class="home_bgd">
+    <view class="bgd_text">
+      <text>乐规乐划</text>
+    </view>
+    <view class="bgd_buttom">
+      <text>享受未来视野 规划成就人生</text>
+      <image src="/user/start/home/buttom_switch.png" bindtap="toTeacher" mode="widthFix"></image>
+    </view>
+    <!-- banner -->
+    <view class="banner">
+      <w-swiper banner="{{banner}}"></w-swiper>
+    </view>
+
+    <view class="pic">
+      <view class="pic_left pic_abs" catchtap="toPlan">
+        <image src="/user/start/home/pic01.png"></image>
+        <view class="pos_text1 pos_text"><text>立即开启</text></view>
+      </view>
+      <view class="pic_right">
+        <view class="pic_abs" bindtap="toUserInfo">
+          <image src="/user/start/home/pic02.png" mode="widthFix"></image>
+          <view class="pos_text2 pos_text"><text>平台操作说明</text></view>
+        </view>
+        <view class="pic_abs">
+          <image src="/user/start/home/pic03.png" mode="widthFix"></image>
+          <view class="pos_text3 pos_text"><text>我的规划方案</text></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 规划大数据 -->
+    <w-nav title="规划大数据"></w-nav>
+    <plan-list planList="{{planList}}"/>
+    <w-nav title="选择规划类别"></w-nav>
+    
+    <view class="choose_plan">
+      <view class="plan_top">
+        <view class="left">
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray}}">
+            <view class="'left_view1 '+{{currentChoose==1?'active':''}}" bindtap="handleCurrentChoose" data-index="{{1}}">
+              <text class="mark_t">升学(学历)规划</text>
+            </view> 
+          </picker>
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray1}}">
+            <view class="'left_view2 '+{{currentChoose==4?'active':''}}" bindtap="handleCurrentChoose" data-index="{{4}}">
+              <text class="mark_t">兴趣(能力)规划</text>
+            </view>
+          </picker>
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray2}}">
+            <view class="'left_view3 '+{{currentChoose==7?'active':''}}" bindtap="handleCurrentChoose" data-index="{{7}}">
+              <text class="mark_t">企业及个人品牌IP提升规划</text>
+            </view>
+          </picker>
+        </view>
+        <view class="center">
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray3}}">
+            <view class="'center_view1 '+{{currentChoose==2?'active':''}}" bindtap="handleCurrentChoose" data-index="{{2}}">
+              <text class="mark_t">个人成长规划</text>
+            </view>
+          </picker>
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray4}}">
+            <view class="'center_view2 '+{{currentChoose==5?'active':''}}" bindtap="handleCurrentChoose" data-index="{{5}}">
+              <text class="mark_t">职场提升规划</text>
+            </view>
+          </picker>
+          <view class="'center_view3 '+{{currentChoose==8?'active':''}}" bindtap="handleCurrentChoose" data-index="{{8}}">
+            <text class="mark_t">其他</text>
+          </view>
+        </view>
+        <view class="right">
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray5}}">
+            <view class="'right_view1 '+{{currentChoose==3?'active':''}}" bindtap="handleCurrentChoose" data-index="{{3}}">
+              <text class="mark_t">家庭成长规划</text>
+            </view>
+          </picker>
+          <picker mode="multiSelector" bindchange="changeMulti" range="{{multiArray6}}">
+            <view class="'right_view2 '+{{currentChoose==6?'active':''}}" bindtap="handleCurrentChoose" data-index="{{6}}">
+              <text class="mark_t">企业成长规划</text>
+            </view>
+          </picker>
+          <view class="right_view3"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 规划师筛选 -->
+    <view class="screen">
+      <text>规划师筛选</text>
+    </view>
+    <view class="screen_button">
+      <block wx:for="{{screenButtonList}}"  wx:key="this" >
+        <picker range="{{item.options}}" disabled="{{item.disabled}}" bindchange="changeCate">
+          <view class="mark_a {{index == 1 || index == 2 ? 'mark_b' : ''}}"
+                bindtap="screenButtonTap" data-index="{{index}}"
+                style="{{index == screenButtonIndex ? 'color: white;background: #5357EB' : ''}}">
+            {{item.title}}
+          </view>
+        </picker>
+      </block>
+    </view>
+
+    <view class="no_detail" wx:if="{{userPlanListInfo.length == 0}}">暂无筛选的规划师</view>
+
+    <view class="screen_list" wx:for="{{userPlanListInfo}}" wx:for-item="item" 
+          wx:key="index" catchtap="toTeacherDetail" data-userplan_id="{{item.userplan_id}}">
+      <view class="screen_top">
+        <!-- 左侧头像头衔 -->
+        <view class="left_pic">
+          <view class="left_box">
+            <image src="{{item.avatar}}" mode="widthFix"></image>
+            <view class="pic_box">
+              <view class="center">{{m1.workStatus(item.work_status)}}</view>
+              <view class="bottom"><view>教龄{{item.times}}年</view></view>
+            </view>
+          </view>
+        </view>
+        <!-- 右侧信息 -->
+        <view class="right_view">
+          <!-- top -->
+          <view class="right_view_top item_screen">
+            <view class="badge_toast" wx:if="{{index == screenIndex}}">{{badgeToastText}}</view>
+
+            <view class="top_view1">{{m1.sliceStr(item.name, 0, 3)}}</view>
+            <view class="top_view2">
+              <view catchtap="badgeTapToast" data-text="{{m1.rz(item.bz_switch)}}支付保障金" data-index="{{index}}">
+                <image src="{{item.bz_switch == 1 ? '/user/start/icon/select_honor01.png' : '/user/start/icon/normal_honor01.png'}}"/>
+              </view>
+              <view catchtap="badgeTapToast" data-text="平台{{m1.rz(item.rz_switch)}}认证" data-index="{{index}}">
+                <image src="{{item.rz_switch == 1 ? '/user/start/icon/select_honor02.png' : '/user/start/icon/normal_honor02.png'}}"/>
+              </view>
+              <view catchtap="badgeTapToast" data-text="{{m1.rz(item.xf_switch)}}认证消费者承诺保障" data-index="{{index}}">
+                <image src="{{item.xf_switch == 1 ? '/user/start/icon/select_honor03.png' : '/user/start/icon/normal_honor03.png'}}"/>
+              </view>
+            </view>
+            <view class="top_view3" catchtap="toMessageDetail" data-userplan_id="{{item.userplan_id}}"
+                  data-name="{{item.name}}" data-avatar="{{item.avatar}}" data-type="home">
+              <text>立即交流</text>
+            </view>
+            <image catchtap="collTap" data-id="{{item.userplan_id}}" class="like_pic" src="{{item.iscoll == 1 ? '/user/start/icon/collect_s.png' : '/user/start/icon/collect_n.png'}}" mode="widthFix"/>
+          </view>
+
+          <!-- center -->
+          <view class="right_view_center">
+            <view>好评率 {{item.goods}}%</view>
+            <view>订单次数 {{item.nums}}</view>
+          </view>
+
+          <!-- bottom -->
+          <view class="right_view_bottom">
+            <view class="estimate_box">
+              <block wx:for="{{item.tags}}" wx:for-item="itemTags" wx:key="this">
+                <view class="estimate" catchtap="tagTap" data-tag="{{itemTags.tag}}" data-id="{{item.userplan_id}}">
+                  <image class="es_bg" src="/user/start/tag/pic03.png" mode="widthFix"></image>
+                  <text class="es_text">{{m1.sliceStr(itemTags.tag, 0, 2)}}</text>
+                  <view class="es_box">
+                    <image src="/user/start/icon/praise.png" mode="widthFix"></image>
+                    <text>{{itemTags.num}}</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+            <view class="price_box" wx:if="{{item.price != ''}}">
+              <text>咨询费</text>
+              <text>{{item.price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="screen_bottom">
+        <view><text>擅长领域</text></view>
+        <view>
+          <block wx:if="{{item.info_tags[0] == ''}}">
+            <view style="width: 460rpx;color: #666666;">暂无擅长领域</view>
+          </block>
+          <block wx:for="{{item.info_tags}}" wx:for-item="itemTerritory" wx:key="this">
+            <view class="screen_bottom_box" wx:if="{{itemTerritory != ''}}">
+              <image class="screen_pic" src="/user/start/icon/unchecked.png" mode="widthFix"></image>
+              <view class="scroll_text_box">{{itemTerritory}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

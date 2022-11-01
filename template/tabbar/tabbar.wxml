@@ -1,0 +1,20 @@
+<template name="tabBar">    
+  <view class="tab-bar" style="color: {{tabbar.color}}; background: {{tarbar.backgroundColor}};{{tabbar.isIOS?'padding-bottom:48rpx':''}}">  
+    <block wx:for="{{tabbar.list}}" wx:key="pagePath">    
+      <navigator url="{{item.pagePath}}?title={{item.title}}" open-type="redirect" hover-class="none" 
+                 class="{{item.clas}}" style="{{item.active?'color:'+(item.selectedColor?item.selectedColor:tabbar.selectedColor):''}}"
+                 style="position: relative;">    
+        <image src="{{item.selectedIconPath}}" style="width: 56rpx;height: 56rpx;" wx:if="{{item.active}}" class="img"></image>    
+        <image src="{{item.iconPath}}" style="width: 56rpx;height: 56rpx;" wx:if="{{!item.active}}" class="img"></image>  
+        <text>{{item.text}}</text>
+        <image src="/assets/image/message_red.png" mode="widthFix" 
+               wx:if="{{index == 3 && tabbar.message == 'user' && tabbar.messageIsTrue == true}}"
+               style="position: absolute; top: 0px; right: 15px; width: 30rpx; height: 30rpx;" />
+        <image src="/assets/image/message_red.png" mode="widthFix" 
+               wx:if="{{index == 3 && tabbar.message == 'planner' && tabbar.messageIsTrue == true}}"
+               style="position: absolute; top: 0px; right: 15px; width: 30rpx; height: 30rpx;" />
+      </navigator>    
+    </block>  
+    <view class="clear"></view>    
+  </view>    
+</template>   

@@ -1,0 +1,147 @@
+<!--pages/seleClass/seleClass.wxml-->
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+
+<view class='view-page' style="height: {{navHeight}}px;position: fixed; top: 0;left: 0;right: 0;z-index: 100;">
+  <navbar page-name="鲸选·MCN" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+</view>
+
+<view  style="margin-top: {{navHeight}}px;padding-bottom: 200rpx;box-sizing: border-box;">
+    
+    <import src="../../template/index.wxml" />
+    <template is="banners" data="{{banner}}"></template>
+    <view class="box">
+        <view class="head">
+            <image src="/planner/start/icon/MCN_1.png" />
+            {{zsip.zsip_name}}
+        </view>
+        <view class="course">
+            <view class="introduce">
+                {{zsip.zsip_desc}}
+            </view>
+            <view class="line">
+                <view class="td">适合人群</view>
+                <view class="th">{{zsip.zsip_sh}}</view>
+            </view>
+            <view class="line">
+                <view class="td">适合行业</view>
+                <view class="th">{{zsip.zsip_hy}}</view>
+            </view>
+            <view class="line">
+                <view class="td">近期开课计划</view>
+                <view class="th"></view>
+            </view>
+        </view>
+        <wxs module="m1">
+            function splitStr(str) {
+            return str.split(',')
+            }
+
+            module.exports = {
+            splitStr: splitStr
+            }
+        </wxs>
+        <block wx:for="{{zsipList}}" wx:key="this">
+            <view class="model">
+            <view class="time_box">
+                <view class="bold">{{item.name}}</view>
+                <view >{{item.str}}</view>
+            </view>
+            <view class="right_mark_status" wx:if="{{item.time_switch == 1}}">
+                <image src="/planner/start/icon/status_1.png" mode="widthFix" />
+            </view>
+            <view class="cell" style="position: relative;">
+                <view wx:for="{{item.infolist}}" wx:for-item="item_info" wx:key="this">
+                    <image src="{{item_info.image}}" mode="aspectFill"/>
+                    <text class="text_name">{{item_info.name}}</text>
+                    <text class="text_desc">{{item_info.desc}}</text>
+                </view>
+
+            </view>
+
+            <view class="welfare_box">
+                <view class="img">
+                    <image src="/planner/start/icon/student_pic01.png" />
+                    <view >学员福利</view>
+                </view>
+                <view class="welfare">
+                    <block wx:for="{{m1.splitStr(item.tags)}}" wx:for-item="item_tag" wx:key="this">
+                        <view class="line">
+                        <view></view>
+                            <text >{{item_tag}}</text>
+                        </view>
+                    </block>
+                </view>
+
+            </view>
+            </view>
+            <view class="btn flex" bindtap="toScan" data-image="{{item.qrcode_image}}">咨询报名</view>
+        </block>
+
+    </view>
+
+    <view class="box">
+        <view class="head">
+            <image src="/planner/start/icon/MCN_2.png" />
+            {{grip.grip_name}}
+        </view>
+        <view class="course">
+            <view class="introduce">
+                {{grip.grip_desc}}
+            </view>
+            <view class="line">
+                <view class="td">适合人群</view>
+                <view class="th">{{grip.grip_sh}}</view>
+            </view>
+            <view class="line">
+                <view class="td">适合行业</view>
+                <view class="th">{{grip.grip_hy}}</view>
+            </view>
+        </view>
+        <view class="model">
+            <view class="time_box">
+                <view class="bold">五对一 配套服务</view>
+            </view>
+            <view class="cells">
+                <view >
+                    <image src="/planner/start/icon/MCN_icon01.png" style="margin-bottom:34rpx;" />
+                    <text >{{grip.grip_fw[0]}}</text>
+                </view>
+                <view >
+                    <image src="/planner/start/icon/MCN_icon02.png" style="margin-bottom:34rpx;" />
+                    <text >{{grip.grip_fw[1]}}</text>
+                </view>
+                <view >
+                    <image src="/planner/start/icon/MCN_icon03.png" style="margin-bottom:34rpx;" />
+                    <text >{{grip.grip_fw[2]}}</text>
+                </view>
+                <view >
+                    <image src="/planner/start/icon/MCN_icon04.png" style="margin-bottom:34rpx;"/>
+                    <text>{{grip.grip_fw[3]}}</text>
+                </view>
+                <view >
+                    <image src="/planner/start/icon/MCN_icon05.png" style="margin-bottom:34rpx;"/>
+                    <text >{{grip.grip_fw[4]}}</text>
+                </view>
+            </view>
+            <view class="welfare_box">
+                <view class="img">
+                    <image src="/planner/start/icon/student_pic01.png" />
+                    <view >学员福利</view>
+                </view>
+                <view class="welfare">
+                    <view class="line" wx:for="{{grip.grip_fl}}" wx:key="this">
+                        <view ></view>
+                        <text >{{item}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="btn flex" bindtap="toScan" data-image="{{grip.grip_image}}">咨询报名</view>
+    </view>
+
+</view>
+
+<block wx:if="{{scanShow}}" class="abc">
+  <scan bind:back="scanBack" image="{{qrcode_image}}"/>
+</block>

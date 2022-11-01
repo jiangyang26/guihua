@@ -1,0 +1,21 @@
+<view class="profile_body">
+  <view class="body_box">
+    <view class="box_left" bindtap="pushOrdersPage">
+      <image src="/user/start/icon/order.png" mode="widthFix"></image>
+      <view>
+        <text>我的订单</text>
+        <text>与平台/讲师</text>
+      </view>
+    </view>
+
+    <view class="box_right" bindtap="pushCollectPage">
+      <image src="/user/start/icon/clt.png" mode="widthFix"></image>
+      <view>
+        <text>收藏的讲师</text>
+      </view>
+    </view>
+  </view>
+  <view class="list">
+    <item-list wx:for="{{listDetail}}" wx:key="index" detail="{{item}}"></item-list>
+  </view>
+</view>

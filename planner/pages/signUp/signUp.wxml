@@ -1,0 +1,46 @@
+<wxs module="m1">
+  function splitStr(str) {
+    return str.split(",")
+  }
+
+  module.exports = {
+    splitStr: splitStr
+  }
+</wxs>
+
+<view class="no_detail" wx:if="{{ghteamInfo.length == 0}}">暂无团购活动</view>
+<view class="box" wx:for="{{ghteamInfo}}" wx:key="this">
+    <view class="head">
+        <view class="title">{{item.type}}</view>
+        <view >已有33人预约</view>
+    </view>
+    <view class="body">
+        <view class="introduce">{{item.desc}}</view>
+        <view class="line">
+            <view class="td">发证机构</view>
+            <view class="th">{{item.org}}</view>
+        </view>
+        <view class="line">
+            <view class="td">考试时间</view>
+            <view class="th">{{item.str}}</view>
+        </view>
+        <view class="institutions">
+            <view class="title">可培训机构</view>
+            <view class="row_box">
+                <block wx:for="{{m1.splitStr(item.orgtags)}}" wx:key="this">
+                  <view class="row">{{item}}</view>
+                </block>
+            </view>
+            <view class="line aitms">
+                <view class="td">团报折扣</view>
+                <view class="discount flex">{{item.discount}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom flex" bindtap="toScan" data-image="{{item.qrcode_image}}">我要预约</view>
+
+</view>
+<block wx:if="{{scanShow}}" class="abc">
+  <scan bind:back="scanBack" image="{{qrcode_image}}"/>
+</block>
+

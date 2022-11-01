@@ -1,0 +1,5 @@
+<template name="banners">
+    <view class="banner">
+        <image src="{{banner[0].image}}" />
+    </view>
+</template>

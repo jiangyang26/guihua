@@ -1,0 +1,75 @@
+@import '../../../template/index.wxss';
+page {
+    background: #FAFCFF;
+    padding: 0 30rpx 112rpx;
+    box-sizing: border-box;
+}
+.region_box{
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 80rpx;
+    background: #FAFCFF;
+    >view{
+        margin-left: 40rpx;
+        color: #666666;
+        font-size: 24rpx;
+        image{
+            margin-left: 16rpx;
+            width: 24rpx;
+            height: 24rpx;
+        }
+    }
+    .dropdown{
+        background: none;
+        box-shadow: none;
+        height: 80rpx;
+        background: #FAFCFF;
+    }
+}
+.box{
+    margin: 10rpx -30rpx 32rpx;
+    padding: 24rpx 30rpx;
+    box-sizing: border-box;
+    box-shadow: 0 0 10rpx 1rpx rgba(0,0,0,0.1);
+    .blate{
+        display: flex;
+        image{
+            width: 318.75rpx;
+            height: 300rpx;
+            border-radius: 4rpx;
+        }
+        .whole{
+            height: 300rpx;
+            margin-left: 40rpx;
+            display: flex;
+            flex-direction: column;
+            .title{
+                font-size: 36rpx;
+            }
+            .sarsb{
+                flex: 1;
+                margin-top: 24rpx;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .line{
+                    font-size: 26rpx;
+                    color: #666666;
+                }
+                
+            }
+        }
+    }
+}
+.button_{
+    width: 130rpx;
+    height: 60rpx;
+    background-color: #5550D6;
+    color: #ffffff;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rpx;
+}

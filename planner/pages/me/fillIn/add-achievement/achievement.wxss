@@ -1,0 +1,52 @@
+/* planner/pages/me/fillIn/add-achievement/achievement.wxss */
+.achievement{
+  padding: 30rpx 40rpx 0rpx;
+}
+input{
+  height: 70rpx;
+  border: none;
+  flex: 1;
+  font-size: 30rpx;
+  color: #333333;
+}
+.date_{
+  border: 1px solid #D3D6DB;
+  padding: 20rpx 0rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date_>image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 60rpx;
+}
+.left{
+  font-size: 32rpx;
+  color: #131313;
+}
+.place{
+  color: #949494;
+  font-size: 30rpx;
+}
+.right{
+  margin-left: 50rpx;
+}
+.achievement>view{
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0rpx;
+}
+.push{
+  width: 150rpx;
+  height: 26px;
+  border: 1px solid #6266EC;
+  color: #6266EC;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 200rpx auto 0rpx;
+}

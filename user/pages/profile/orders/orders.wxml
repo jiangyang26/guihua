@@ -1,0 +1,64 @@
+<view class="orders">
+  <view class="title_view">您与平台默认签署四项基本协议</view>
+  <view class="agreement_list">
+    <agreement wx:for="{{agreementList}}" wx:key="this" agreement="{{item}}"/>
+  </view>
+  <view class="order_agreement">订单及协议/平台签约</view>
+
+  <wxs module="m1">
+    function statusFun(num) {
+      var obj = {}
+      switch (num) {
+        case '1':
+          obj.str = '已发起'
+          obj.image = '/user/start/icon/order/icon01.png'
+          break;
+        case '2':
+          obj.str = '未通过'
+          obj.image = '/user/start/icon/order/icon02.png'
+          break;
+        case '3':
+          obj.str = '合同已生成'
+          obj.image = '/user/start/icon/order/icon03.png'
+          break;
+        case '4':
+          obj.str = '已签署'
+          obj.image = '/user/start/icon/order/icon04.png'
+          break;
+      }
+      return obj
+    }
+
+    module.exports = {
+      statusFun: statusFun
+    }
+  </wxs>
+  <view class="no_detail" wx:if="{{orderList.length == 0}}">暂无订单列表</view>
+    
+  <block wx:for="{{orderList}}" wx:key="this">
+    <view class="order">
+      <view class="order_head">
+        <view>
+          <text>规划类别</text>
+          <view class="head_right_box">
+            <image src="{{m1.statusFun(item.type_status).image}}" mode="widthFix"></image>
+            <text>{{m1.statusFun(item.type_status).str}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="order_body">
+        <view class="order_num_">
+          <text>订单编号：{{item.pro_sn}}</text>
+          <view bindtap="toAgreementDetail">
+            <text>查看协议详情</text>
+            <image class="right_pic" src="/user/start/icon/right.png" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="_date">发布日期：{{item.createtime}}</view>
+        <view wx:if="{{item.type_status == 2}}" class="reason">
+          <text>驳回理由：{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

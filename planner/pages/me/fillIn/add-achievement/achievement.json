@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-lines": "/components/lines/lines"
+  },
+  "navigationBarTitleText": "添加辅导成果"
+}

@@ -1,0 +1,92 @@
+page {
+  background: #FAFCFF;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  padding-bottom: 200rpx;
+}
+.box {
+  margin-top: 24rpx;
+  box-shadow: 0 0 24rpx 2rpx rgba(0, 0, 0, 0.1);
+  border-radius: 16rpx;
+}
+.box .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 20rpx;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 24rpx;
+  color: #666;
+}
+.box .head .title {
+  font-size: 36rpx;
+  color: #000;
+}
+.box .body {
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+}
+.box .body .introduce {
+  font-size: 28rpx;
+  margin-bottom: 48rpx;
+}
+.box .body .line {
+  margin-bottom: 32rpx;
+  display: flex;
+  font-size: 28rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1px solid #E5E5E5;
+}
+.box .body .line .td {
+  width: 182rpx;
+  color: #999;
+}
+.box .body .institutions .title {
+  font-size: 28rpx;
+}
+.box .body .institutions .row_box {
+  margin-top: 24rpx;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+.box .body .institutions .row_box .row {
+  margin-right: 24rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  border: 1px solid #E2E1FF;
+  border-radius: 8rpx;
+  padding: 0 14rpx;
+  box-sizing: border-box;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.box .body .institutions .row_box .row:last-child {
+  margin: 0;
+}
+.box .body .institutions .aitms {
+  margin-top: 32rpx;
+  display: flex;
+  align-items: center;
+}
+.box .body .institutions .aitms .discount {
+  width: 110rpx;
+  height: 48rpx;
+  background-color: #E2E1FF;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #5350D5;
+}
+.box .bottom {
+  height: 72rpx;
+  background-color: #5350D5;
+  border-radius: 0 0 16rpx 16rpx;
+  font-size: 28rpx;
+  color: #fff;
+}

@@ -1,0 +1,4 @@
+/* planner/pages/me/star/index.wxss */
+.star_image{
+  width: 100vw;
+}

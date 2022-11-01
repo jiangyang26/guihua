@@ -1,0 +1,45 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>选择学习目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的竞赛目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="multiSelector" range="{{multiMatch}}" bindcolumnchange="changeColumnc" bindchange="changeMulti">
+      <view class="lines">
+        <text class="place_"><text style="color: black;">竞赛类别</text> {{multiMatch[0][multiMatchIndex[0]] || ''}}</text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+      <view class="lines mark_lines">
+        <text class="place_"><text style="color: black;">竞赛名称</text> {{multiMatch[1][multiMatchIndex[1]] || ''}}</text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="bindTargetChange" range="{{targetArray}}">
+      <view class="lines mark_lines">
+        <text class="place_"><text style="color: black;">选择目标</text> {{inputValue}}</text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>输入目前情况</text>
+    </view>
+    <textarea placeholder="输入目前分数及情况、需求介绍" placeholder-class="place_" bindinput="changeOther"></textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

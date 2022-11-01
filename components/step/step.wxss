@@ -1,0 +1,9 @@
+/* components/step/step.wxss */
+.step{
+  height: 110rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #000000;
+  display: flex;
+  align-items: center;
+}

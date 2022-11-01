@@ -1,0 +1,36 @@
+<view class="achievement">
+  <picker mode="date" bindchange="changeDate">
+    <view class="date_">
+      <text class="left">辅导时间<text class="place right">{{date_}}</text></text>
+      <image src="/planner/start/icon/right.png" mode="widthFix" />
+    </view>
+  </picker>
+  <view>
+    <text class="left">学生姓名</text>
+    <input class="right" type="text" bindinput="changeName" placeholder="请输入学生姓名" placeholder-class="place"/>
+  </view>
+  <w-lines/>
+  <view>
+    <text class="left">辅导类型</text>
+    <input class="right" type="text" bindinput="changeType" placeholder="请输入辅导类型，例如：心理辅导"  placeholder-class="place"/>
+  </view>
+  <w-lines/>
+  <view>
+    <text class="left">学生情况</text>
+    <input class="right" type="text" bindinput="changeSituation" placeholder="请输入学生情况，例如：学生轻度抑郁"  placeholder-class="place"/>
+  </view>
+  <w-lines/>
+  <view>
+    <text class="left">辅导效果</text>
+    <input class="right" type="text" bindinput="changeResult" placeholder="请输入辅导效果，例如：辅导后开朗"  placeholder-class="place"/>
+  </view>
+  <w-lines/>
+  <view>
+    <text class="left">辅导时长\n(小时)</text>
+    <input class="right" type="number" bindinput="changeTime" placeholder="请输入辅导时长"  placeholder-class="place"/>
+  </view>
+  <w-lines/>
+  <view class="button_box">
+    <view class="push" bindtap="addTap">添加</view>
+  </view>
+</view>

@@ -1,0 +1,314 @@
+{
+  "setting": {
+    "compileHotReLoad": true
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "Lanhu_Test1",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "教师端首页",
+          "pathName": "planner/pages/home/home",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "教师端 模板课",
+          "pathName": "planner/pages/templateClass/templateClass",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户端 全龄规划",
+          "pathName": "user/pages/plan/plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户端 我的",
+          "pathName": "user/pages/profile/profile",
+          "query": "title=%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "注册页",
+          "pathName": "pages/login/account/account",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户端主页",
+          "pathName": "user/pages/home/home",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "教师端 我的",
+          "pathName": "planner/pages/me/me",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户端 订单",
+          "pathName": "user/pages/profile/orders/orders",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "教师端 订单",
+          "pathName": "planner/pages/me/order/order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户端 快速发布",
+          "pathName": "user/pages/fast/fast",
+          "query": "title=",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户端 历史发布",
+          "pathName": "user/pages/profile/history-fast/history-fast",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "协议详情",
+          "pathName": "user/pages/profile/agreement/agreement",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "用户留言",
+          "pathName": "user/pages/message/leave-message/message",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "规划方案详情",
+          "pathName": "user/pages/profile/scheme-detail/detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人信息录入",
+          "pathName": "planner/pages/me/fillIn/fillIn",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "竞赛类规划",
+          "pathName": "user/pages/plan/classification-1/match-plan/match-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "留学类规划",
+          "pathName": "user/pages/plan/classification-1/study-abroad-plan/study-abroad-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "升学类规划",
+          "pathName": "user/pages/plan/classification-1/enter-plan/enter-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "财产（养老）规划",
+          "pathName": "user/pages/plan/classification-2/property-plan/property-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "家庭教育规划",
+          "pathName": "user/pages/plan/classification-2/education-plan/education-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "职业生涯规划",
+          "pathName": "user/pages/plan/classification-3/occupation-plan/occupation-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "职业资格证规划",
+          "pathName": "user/pages/plan/classification-3/certificate-plan/certificate-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "求职规划",
+          "pathName": "user/pages/plan/classification-3/job-plan/job-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "心理辅导规划",
+          "pathName": "user/pages/plan/classification-4/psychology-plan/psychology-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "恋爱规划",
+          "pathName": "user/pages/plan/classification-4/love-plan/love-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "落户规划",
+          "pathName": "user/pages/plan/classification-4/settle-plan/settle-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "理财规划",
+          "pathName": "user/pages/plan/classification-4/money-plan/money-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "创业规划",
+          "pathName": "user/pages/plan/classification-4/undertaking-plan/undertaking-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "兴趣类规划（老年）",
+          "pathName": "user/pages/plan/classification-5/old-plan/old-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "兴趣类规划(成人)",
+          "pathName": "user/pages/plan/classification-5/grow-up-plan/grow-up-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "兴趣类规划(青少年)",
+          "pathName": "user/pages/plan/classification-5/young-boy-plan/young-boy-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "企业融资规划",
+          "pathName": "user/pages/plan/classification-6/finance-plan/finance-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "企业财税规划",
+          "pathName": "user/pages/plan/classification-6/tax-plan/tax-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "企业上市规划",
+          "pathName": "user/pages/plan/classification-6/market-plan/market-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "企业员工提升规划",
+          "pathName": "user/pages/plan/classification-6/staff-plan/staff-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "企业IP打造规划",
+          "pathName": "user/pages/plan/classification-7/enterprise-plan/enterprise-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人IP打造规划",
+          "pathName": "user/pages/plan/classification-7/individual-plan/individual-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "学习成绩类规划",
+          "pathName": "user/pages/plan/classification-1/study-plan/study-plan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "鲸选",
+          "pathName": "planner/pages/seleClass/seleClass",
+          "query": "title=%E9%B2%B8%E9%80%89%C2%B7MCN",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "上传个人简历",
+          "pathName": "planner/pages/me/resume/resume",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "添加辅导成果",
+          "pathName": "planner/pages/me/fillIn/add-achievement/achievement",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "发起协议",
+          "pathName": "planner/pages/me/collection/collection",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "收藏的线索",
+          "pathName": "planner/pages/me/Collect/clues",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

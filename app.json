@@ -1,0 +1,90 @@
+{
+  "pages": [
+    "pages/firing/firing",
+    "pages/login/login",
+    "pages/login/account/account"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#FAFCFF"
+  },
+  "subpackages": [
+    {
+      "root": "planner",
+      "pages": [
+        "pages/home/home",
+        "pages/me/fillIn/fillIn",
+        "pages/me/collection/collection",
+        "pages/templateClass/templateClass",
+        "pages/seleClass/seleClass",
+        "pages/signUp/signUp",
+        "pages/home/teacher/teacher",
+        "pages/message/message",
+        "pages/me/order/order",
+        "pages/me/Earnings/record",
+        "pages/me/Collect/clues",
+        "pages/me/me",
+        "pages/home/teacher_/teacher_",
+        "pages/message/leave-message/message",
+        "pages/me/agreement/agreement",
+        "pages/me/fillIn/add-achievement/achievement",
+        "pages/me/resume/resume",
+        "pages/home/fast-detail/school-plan/school-plan",
+        "pages/home/fast-detail/fast-detail/fast-detail",
+        "pages/home/userplaninfo/index",
+        "pages/me/star/index"
+      ]
+    },
+    {
+      "root": "user",
+      "pages": [
+        "pages/fast/fast",
+        "pages/home/home",
+        "pages/message/message",
+        "pages/plan/plan",
+        "pages/profile/profile",
+        "pages/profile/orders/orders",
+        "pages/profile/collect/collect",
+        "pages/profile/history-fast/history-fast",
+        "pages/profile/scheme/scheme",
+        "pages/profile/fillIn/fillIn",
+        "pages/plan/classification-1/study-plan/study-plan",
+        "pages/profile/history-fast/fast-detail/fast-detail",
+        "pages/profile/history-fast/school-plan/school-plan",
+        "pages/profile/agreement/agreement",
+        "pages/message/leave-message/message",
+        "pages/profile/scheme-detail/detail",
+        "pages/plan/classification-1/match-plan/match-plan",
+        "pages/plan/classification-1/study-abroad-plan/study-abroad-plan",
+        "pages/plan/classification-1/enter-plan/enter-plan",
+        "pages/plan/classification-2/property-plan/property-plan",
+        "pages/plan/classification-2/education-plan/education-plan",
+        "pages/plan/classification-3/occupation-plan/occupation-plan",
+        "pages/plan/classification-3/certificate-plan/certificate-plan",
+        "pages/plan/classification-3/job-plan/job-plan",
+        "pages/plan/classification-4/psychology-plan/psychology-plan",
+        "pages/plan/classification-4/love-plan/love-plan",
+        "pages/plan/classification-4/settle-plan/settle-plan",
+        "pages/plan/classification-4/money-plan/money-plan",
+        "pages/plan/classification-4/undertaking-plan/undertaking-plan",
+        "pages/plan/classification-5/old-plan/old-plan",
+        "pages/plan/classification-5/grow-up-plan/grow-up-plan",
+        "pages/plan/classification-5/young-boy-plan/young-boy-plan",
+        "pages/plan/classification-6/finance-plan/finance-plan",
+        "pages/plan/classification-6/tax-plan/tax-plan",
+        "pages/plan/classification-6/market-plan/market-plan",
+        "pages/plan/classification-6/staff-plan/staff-plan",
+        "pages/plan/classification-7/enterprise-plan/enterprise-plan",
+        "pages/plan/classification-7/individual-plan/individual-plan",
+        "pages/home/userinfo/index"
+      ]
+    }
+  ],
+  "useExtendedLib": {
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

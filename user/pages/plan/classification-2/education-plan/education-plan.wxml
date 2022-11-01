@@ -1,0 +1,47 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>计划目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的计划目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="multiSelector" range="{{categoryArray}}" bindchange="changeCategory">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">计划类别 </text>{{categoryValue.length != 0 ? categoryArray[0][categoryValue[0]] +'-'+ categoryArray[1][categoryValue[1]] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker range="{{targetArray}}" bindchange="changeTarget">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">计划目标 </text>{{targetArray[targetValue] || ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>输入目前情况</text>
+    </view>
+    <textarea placeholder="请输入目前情况" placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

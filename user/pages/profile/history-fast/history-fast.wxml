@@ -1,0 +1,17 @@
+<view class="no_detail" wx:if="{{hisFastList.length == 0}}">暂无发布</view>
+<view class="history_fast">
+
+  <view class="fast_list"  bindtap="fastDetailTap" data-plan_id="{{item.plan_id}}" 
+        wx:for="{{hisFastList}}" wx:key="this" data-status="{{item.status}}">
+    <view class="fast_head">
+      <text>{{item.type}}</text>
+      <view>
+        <text>查看详情</text>
+        <image src="/user/start/icon/right.png" mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="lines"></view>
+    <view class="fast_date">发布日期：{{item.createtime}}</view>
+    <view class="fast_budget" wx:if="{{item.ks_price != null}}">预算范围：{{item.ks_price}}/小时</view>
+  </view>
+</view>

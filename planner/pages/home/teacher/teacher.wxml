@@ -1,0 +1,41 @@
+<!-- pages/home/teacher/teacher.wxml -->
+<import src="../../../template/index.wxml" />
+<template is="banners" data="{{banner}}"></template>
+<view class="region_box">
+    <picker range="{{proList}}" bindchange="changePro">
+      <view>
+        <text>{{proList[proIndex]}}</text>
+        <image src="/planner/start/icon/down.png" mode="widthFix"/>
+      </view>
+    </picker>
+    <picker range="{{cityList[proIndex]}}" bindchange="changeCity">
+      <view>
+        <text>{{cityList[proIndex][cityIndex]}}</text>
+        <image src="/planner/start/icon/down.png" mode="widthFix"/>
+      </view>
+    </picker>
+</view>
+
+<view class="box" wx:for="{{ghactList}}" wx:key="this">
+    <view class="blate">
+        <image class="hd_image" src="{{item.image}}" mode="widthFix"/>
+        <view class="whole">
+            <view class="title">{{item.name}}</view>
+            <view class="sarsb">
+                <view class="line">时间：{{item.str}}</view>
+                <view class="line">城市：{{item.pro}}</view>
+                <view class="line">地点：{{item.address}}</view>
+                <view class="line">规模：{{item.max}}</view>
+                <view class="line">活动类型：{{item.type}}</view>
+                <view class="line">人数：{{item.nums}}</view>
+            </view>
+            <view class="button_" bindtap="toScan" data-image="{{item.qrcode_image}}">我要预约</view>
+        </view>
+    </view>
+
+</view>
+<view wx:if="{{ghactList.length == 0}}" class="no_detail">暂无活动</view>
+
+<block wx:if="{{scanShow}}">
+  <scan bind:back="scanBack" image="{{qrcode_image}}"/>
+</block>

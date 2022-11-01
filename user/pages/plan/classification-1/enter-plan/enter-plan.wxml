@@ -1,0 +1,74 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>选择学习目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的升学目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="region" level="city" bindchange="changeRegion">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">计划升学城市 </text>{{regionValue.length != 0 ? regionValue[0]+'-'+regionValue[1]:''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker mode="multiSelector" range="{{stageArray}}" bindcolumnchange="changeColumncStage" bindchange="changeStage">
+      <view class="lines mark_lines">
+        <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+          <text style="color: black;">选择升学阶段 </text>{{stageValue.length != 0 ? stageArray[0][stageValue[0]]+'-'+stageArray[1][stageValue[1]] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <view class="title mark_lines">学校名称</view>
+    <view class="input_name">
+      <input type="text" placeholder="请输入学校名称" bindinput="changeSchoolNameTarget" placeholder-class="name_place_"/>
+    </view>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>选择目前状态</text>
+    </view>
+
+    <picker mode="region" level="city" bindchange="changeRegion1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">计划升学城市 </text>{{regionValue1.length != 0 ? regionValue1[0]+'-'+regionValue1[1]:''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker mode="multiSelector" range="{{stageArray1}}" bindcolumnchange="changeColumncStage1" bindchange="changeStage1">
+      <view class="lines mark_lines">
+        <text class="place_" style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+          <text style="color: black;">选择升学阶段 </text>{{stageValue1.length != 0 ? stageArray1[0][stageValue1[0]]+'-'+stageArray1[1][stageValue1[1]] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <view class="title mark_lines">学校名称</view>
+    <view class="input_name">
+      <input type="text" placeholder="请输入学校名称" bindinput="changeSchoolNameCurrent" placeholder-class="name_place_"/>
+    </view>
+
+    <textarea placeholder="其他信息手动输入框" bindinput="changeOther" placeholder-class="place_">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

@@ -1,0 +1,100 @@
+/* planner/pages/home/fast-detail/fast-detail/fast-detail.wxss */
+.fast_detail{
+  padding: 0rpx 60rpx 112rpx;
+  box-sizing: border-box;
+}
+.head_box{
+  width: 630rpx;
+  height: 200rpx;
+  background: #F5F7FF;
+  box-shadow: 0px 8rpx 24rpx 2rpx rgba(0, 0, 0, 0.05);
+  border-radius: 16rpx;
+  margin: 44rpx auto 40rpx;
+  padding: 40rpx 40rpx 0rpx;
+  box-sizing: border-box;
+}
+.head_box>.top, .head_box>.bottom{
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #000000;
+}
+.head_box>.bottom{
+  margin-top: 40rpx;
+}
+.box_title{
+  display: flex;
+  align-items: center;
+}
+.box_title>view{
+  width: 8rpx;
+  height: 32rpx;
+  background: #5350D5;
+  border-radius: 4rpx;
+}
+.box_title>text{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #000000;
+  margin-left: 32rpx;
+}
+.recruit_box, .teaching_box, .price_box, .other_box{
+  display: flex;
+  margin: 24rpx 0rpx 48rpx;
+  align-items: center;
+}
+.recruit_mark_f{
+  margin-left: 32rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.recruit_mark_l{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-left: 24rpx;
+}
+.recruit_mark_f, .recruit_mark_l{
+  height: 52rpx;
+  background: #F5F7FF;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.teaching_box>view{
+  height: 40rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background: #5350D5;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 32rpx;
+}
+.teaching_box>text{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #000000;
+  margin-left: 24rpx;
+}
+.price_box>text{
+  margin-left: 40rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #000000;
+}
+.other_box>text{
+  margin-left: 40rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #000000;
+}

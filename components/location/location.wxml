@@ -1,0 +1,5 @@
+<view class="lo">
+  <image class="mark_pic1" src="/user/start/icon/location.png" mode="widthFix"></image>
+  <view class="mark_box"></view>
+  <image class="mark_pic2" src="/user/start/icon/location.png" mode="widthFix"></image>
+</view>

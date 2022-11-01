@@ -1,0 +1,34 @@
+/* components/pagination/pagination.wxss */
+.pagination{
+  margin: auto;
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pre{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+}
+.next{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #000000;
+}
+.page_count{
+  display: flex;
+  /* width: 100px; */
+  justify-content: space-evenly;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #999999;
+  margin: 0rpx 32rpx;
+}
+.page_count>view:first-child{
+  color: #5350D5;
+}
+.mark{
+  margin: 0rpx 38rpx;
+}

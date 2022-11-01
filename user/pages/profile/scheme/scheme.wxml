@@ -1,0 +1,17 @@
+<view class="scheme">
+
+  <view class="no_detail" wx:if="{{schemeList.length == 0}}">暂无规划方案</view>
+  <block wx:for="{{schemeList}}" wx:key="this">
+
+    <view class="scheme_list">
+      <view class="s_top">{{item.name}}</view>
+      <view class="s_center">购买日期：{{item.times}}</view>
+      <view class="s_bottom">
+        <text>{{item.price}}￥</text>
+        <view bindtap="toSchemeDetail" data-info_id="{{item.info_id}}" data-image="{{item.image}}">查看详情</view>
+      </view>
+    </view>
+
+  </block>
+
+</view>

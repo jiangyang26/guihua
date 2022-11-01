@@ -1,0 +1,77 @@
+page {
+    background: #FAFCFF;
+    padding: 0 30rpx 112rpx;
+    box-sizing: border-box;
+}
+.head{
+    .title{
+        font-size: 26rpx;
+    }
+    .cell_box{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30rpx;
+    }
+}
+.body{
+    margin-top: 46rpx;
+    .title{
+        font-size: 26rpx;
+        margin-bottom: 24rpx;
+    }
+    .box{
+        margin-bottom: 32rpx;
+        box-shadow: 0 0 24rpx 2rpx rgba(0,0,0,0.1);
+        border-radius: 8rpx;
+        .head{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72rpx;
+            background-color: #F1F1FF;
+            border-radius: 8rpx 8rpx 0 0;
+            padding: 0 24rpx;
+            .name{
+                font-size: 30rpx;
+                font-weight: bold;
+            }
+            .state{
+                display: flex;
+                align-items: center;
+                image{
+                    width: 32rpx;
+                    height: 32rpx;
+                }
+                >view{
+                    font-size: 28rpx;
+                    margin-left: 12rpx;
+                    color: #333;
+                }
+            }
+        }
+        .content{
+            padding: 32rpx 24rpx;
+            .line{
+                display: flex;
+                justify-content: space-between;
+                .number,.date,.fail{
+                    font-size: 28rpx;
+                }
+                .details{
+                    font-size: 24rpx;
+                }
+                .date,.fail{
+                    margin-top: 16rpx;
+                }
+                .fail{
+                    color: #DA1D1D;
+                }
+            }
+        }
+    }
+}
+.agreement_list{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30rpx;
+} 

@@ -1,0 +1,37 @@
+<scroll-view class="leave_message" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation="{{true}}">
+
+  <view class="no_detail" wx:if="{{notMessage == false}}">暂未留言</view>
+
+  <view class="message" wx:if="{{leavingInfo.length != 0}}">
+    <view class="leave_message_box">
+      <block wx:for="{{leavingInfo}}" wx:key="this">
+        <view class="left_message" wx:if="{{item.status == '2'}}">
+          <view class="aaa">
+            <view class="message_t" style="{{item.info.length > 15 ? 'width: 70%;' : ''}}">
+              {{item.info}}
+            </view>
+            <image class="message_a" src="{{avatar}}" mode="widthFix" />
+          </view>
+        </view>
+
+        <view class="right_message" wx:if="{{item.status == '1'}}">
+          <view class="bbb">
+            <image class="message_a" src="{{item.avatar}}" mode="widthFix" />
+            <view class="message_t" style="{{item.info.length > 15 ? 'width: 70%;' : ''}}">
+              {{item.info}}
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+
+</scroll-view>
+
+<view class="bottom_input">
+  <view class="input_box">
+    <input type="text"  placeholder="请输入回复内容" value="{{inputInfo}}" bindinput="changeInput" placeholder-class="place_"/>
+    <view class="push_" catchtap="pushTap">发送</view>
+  </view>
+</view>

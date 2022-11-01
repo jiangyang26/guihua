@@ -1,0 +1,89 @@
+page {
+  background: #FAFCFF;
+  padding-bottom: 112rpx;
+  box-sizing: border-box;
+}
+.head{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.head .title {
+  font-size: 26rpx;
+}
+.head .cell_box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.body {
+  margin-top: 46rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.body .title {
+  font-size: 26rpx;
+  margin-bottom: 24rpx;
+}
+.body .box {
+  margin-bottom: 32rpx;
+  box-shadow: 0 0 24rpx 2rpx rgba(0, 0, 0, 0.1);
+  border-radius: 8rpx;
+}
+.body .box .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72rpx;
+  background-color: #F1F1FF;
+  border-radius: 8rpx 8rpx 0 0;
+  padding: 0 24rpx;
+}
+.body .box .head .name {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.body .box .head .state {
+  display: flex;
+  align-items: center;
+}
+.body .box .head .state image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.body .box .head .state > view {
+  font-size: 28rpx;
+  margin-left: 12rpx;
+  color: #333;
+}
+.body .box .content {
+  padding: 32rpx 24rpx;
+}
+.body .box .content .line {
+  display: flex;
+  justify-content: space-between;
+}
+.body .box .content .line .number,
+.body .box .content .line .date,
+.body .box .content .line .fail {
+  font-size: 28rpx;
+}
+.body .box .content .line .details {
+  font-size: 24rpx;
+}
+.body .box .content .line .date,
+.body .box .content .line .fail {
+  margin-top: 16rpx;
+}
+.body .box .content .line .fail {
+  color: #DA1D1D;
+}
+.agreement_list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.tabs_custom{
+  background-color: #FAFCFF;
+}

@@ -1,0 +1,57 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>选择学习目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的升学目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="selector" range="{{array}}" bindchange="changeOutermost">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">留学类别 </text>{{arrayIndex != -1?array[arrayIndex]:''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker range="{{amongArray}}" bindchange="changeAmong">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">留学目标 </text>{{inputInfo.country || amongArray[amongIndex]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <view class="title mark_lines">学校名称</view>
+    <view class="input_name">
+      <input type="text" placeholder="请输入学校名称" placeholder-class="name_place_" bindinput="changeSchool"/>
+    </view>
+    <view class="title mark_lines">专业名称</view>
+    <view class="input_name">
+      <input type="text" placeholder="请输入专业名称" placeholder-class="name_place_" bindinput="changeMajor"/>
+    </view>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>输入目前情况</text>
+    </view>
+    <textarea placeholder="请您输入学生目前所在学校、年级、语言成绩、获奖、竞赛等基本情况。升学规划老师稍后会为您评估"
+              placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

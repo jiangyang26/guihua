@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+    "scan": "./scan/scan"
+  },
+  "navigationStyle": "custom"
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "agreement": "/components/agreement/agreement",
+    "mp-icon": "weui-miniprogram/icon/icon",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  },
+  "navigationBarTitleText": "我的订单(平台发起)"
+}

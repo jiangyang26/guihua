@@ -1,0 +1,9 @@
+<view class="pagination">
+  <view class="pre">上一页</view>
+  <view class="page_count">
+    <view>1</view>
+    <view class="mark">2</view>
+    <view>3</view>
+  </view>
+  <view class="next">下一页</view>
+</view>

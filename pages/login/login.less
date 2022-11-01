@@ -1,0 +1,121 @@
+page {
+    background: #FAFCFF;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+.login_title{
+    margin-top: 30rpx;
+    text-align: center;
+    font-size: 32rpx;
+    line-height: 38rpx;
+    font-weight: bold;
+}
+.login_subtitle{
+    text-align: center;
+    font-size: 24rpx;
+    font-weight: bold;
+}
+.box{
+    width: 590rpx;
+    margin: 32rpx auto 0;
+    box-shadow: 0 0 24rpx 2rpx rgba(0,0,0,0.1);
+    border-radius: 16rpx;
+    background-color: #fff;
+    overflow: hidden;
+    .head{
+        position: relative;
+        margin-bottom: 20rpx;
+        background: linear-gradient(200deg, #5C69E0 0%, #5350D5 100%);
+        border-radius: 16rpx 16rpx 0 0;
+        display: flex;
+        >view{
+            padding: 34rpx 0;
+            flex-direction: column;
+            width: 50%;
+            .userInfo_img{
+                width: 144rpx;
+                height: 144rpx;
+                background-color: #fff;
+                border-radius: 50%;
+                >image{
+                    width: 96rpx;
+                    height: 96rpx;
+                }
+            }
+            .identity{
+                margin-top: 8rpx;
+                font-size: 26rpx;
+                color: #fff;
+                font-weight: 300;
+            }
+        }
+        .line{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 2rpx;
+            height: 72rpx;
+            border-right: 1px solid #C0BEFF;
+            box-sizing: border-box;
+        }
+    }
+    .body{
+        padding: 0 80rpx;
+        .title{
+            margin-top: 48rpx;
+            font-size: 30rpx;
+        }
+        .input{
+            margin-top: 16rpx;
+            padding: 14rpx 28rpx;
+            border: 1px solid #C1BFFF;
+            border-radius: 8rpx;
+            background-color: #F4F7FF;
+            font-size: 24rpx;
+        }
+        .account{
+            margin: 16rpx 0 86rpx;
+            display: flex;
+            justify-content: space-between;
+            color: #5350D5;
+            font-size: 24rpx;
+        }
+    }
+}
+.agreement{
+    margin: 32rpx auto 0;
+    width: 590rpx;
+    display: flex;
+    >view{
+        font-size: 24rpx;
+        line-height: 34rpx;
+        color: #666666;
+        >text{
+            color: #0087E9;
+        }
+    }
+}
+.vant-checkbox{
+    align-items: flex-start;
+}
+.background{
+    position: absolute;
+    top: 550rpx;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    image{
+        width: 427rpx;
+        height: 898rpx;
+    }
+}
+button{
+  margin: 48rpx auto 0;
+  width: 590rpx;
+  height: 96rpx;
+  background-color: #5350D5;
+  border-radius: 88rpx;
+  color: #fff;
+}

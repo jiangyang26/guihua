@@ -1,0 +1,112 @@
+@import '../../template/index.wxss';
+page {
+    height: 100%;
+    background-color: #FAFCFF;
+}
+page::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+.type_title{
+    margin-top: 34rpx;
+    color: #333333;
+    font-size: 30rpx;
+    font-weight: 600;
+}
+.box {
+    width: 690rpx;
+    box-shadow: 0 0 24rpx 2rpx rgba(0, 0, 0, 0.1);
+    border-radius: 16rpx;
+    margin-bottom: 32rpx;
+    .head {
+        background: linear-gradient(270deg, #5350D5 0%, #9250D5 100%);
+        border-radius: 16rpx 16rpx 0 0;
+        height: 96rpx;
+        display: flex;
+        align-items: center;
+        .logo {
+            margin-left: 30rpx;
+            width: 104rpx;
+            height: 36rpx;
+            border-radius: 8rpx;
+            background-color: #fff;
+            font-size: 20rpx;
+            color: #5350D5;
+        }
+        .title {
+            margin-left: 24rpx;
+            font-size: 36rpx;
+            color: #fff;
+        }
+    }
+    .body {
+        padding: 0 30rpx;
+        overflow: hidden;
+        .userInfo {
+            margin-top: 34rpx;
+            display: flex;
+            align-items: center;
+            image {
+                width: 48rpx;
+                height: 48rpx;
+                border-radius: 50%;
+            }
+            >view {
+                margin-left: 24rpx;
+                font-size: 30rpx;
+            }
+        }
+        .introduce {
+            margin-top: 16rpx;
+            font-size: 26rpx;
+            color: #999;
+        }
+        .time {
+            margin-top: 6rpx;
+            color: #666;
+            font-size: 26rpx;
+        }
+        .line {
+            margin-top: 18rpx;
+            display: flex;
+            justify-content: space-between;
+            .row {
+                border-radius: 4rpx;
+                border: 1px solid #E2E1FF;
+                box-sizing: border-box;
+                text-align: center;
+                >view {
+                    background-color: #E2E1FF;
+                    font-size: 20rpx;
+                    color: #5350D5;
+                    padding: 6rpx 12rpx;
+                }
+                image {
+                    width: 24rpx;
+                    height: 24rpx;
+                }
+            }
+        }
+        .bottom {
+            margin-top: 38rpx;
+            margin-bottom: 24rpx;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 26rpx;
+            >view {
+                width: 160rpx;
+                height: 56rpx;
+                background-color: #5350D5;
+                border-radius: 28rpx;
+                color: #fff;
+            }
+        }
+    }
+}
+.Vtab {
+    text-align: left !important;
+    padding: 0 32rpx 0 0!important;
+}

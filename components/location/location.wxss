@@ -1,0 +1,31 @@
+/* components/location/location.wxss */
+.lo{
+  height: 8rpx;
+  background: #E9E9E9;
+  border-radius: 12rpx;
+  margin-top: 80rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.mark_box{
+  width: 312rpx;
+  height: 8rpx;
+  background: linear-gradient(270deg, #5350D5 0%, #918FF9 100%);
+  border-radius: 12rpx 12rpx 12rpx 12rpx;
+  position: absolute;
+  top: 0px;
+  left: 106rpx;
+}
+.mark_pic1{
+  bottom: 8rpx;
+  left: 90rpx;
+}
+.mark_pic2{
+  bottom: 8rpx;
+  left: calc(90rpx + 310rpx);
+}
+.mark_pic1, .mark_pic2{
+  position: absolute;
+  width: 32rpx;
+  height: 42rpx;
+}

@@ -1,0 +1,283 @@
+<!-- pages/me/fillIn/fillIn.wxml -->
+
+<wxs module="m1">
+  function xueli(num) {
+    var str = ''
+    switch (num) {
+      case '1':
+        str = '本科'
+        break;
+      case '2':
+        str = '硕士'
+        break;
+      case '3':
+        str = '博士'
+        break;
+      case '4':
+        str = '其他'
+        break;
+    }
+    return str
+  }
+
+  function pm(num) {
+    var str = ''
+    switch (num) {
+      case '1':
+        str = '985院校'
+        break;
+      case '2':
+        str = '211院校'
+        break;
+      case '3':
+        str = '985&211院校'
+        break;
+      case '4':
+        str = '国内普通高校'
+        break;
+      case '5':
+        str = '全球QS名校排名100以内'
+        break;
+      case '6':
+        str = '全球QS名校排名200以内'
+        break;
+      case '7':
+        str = '全球QS名校排名300以内'
+        break;
+      case '8':
+        str = '全球QS名校排名500以内'
+        break;
+      case '9':
+        str = '全球QS名校排名800以内'
+        break;
+      case '10':
+        str = '全球QS名校排名1000以内'
+        break;
+    }
+    return str
+  }
+
+  function ms(num) {
+    var str = ''
+    switch (num) {
+      case '1':
+        str = '线上'
+        break;
+      case '2':
+        str = '线下'
+        break;
+      case '3':
+        str = '线上/线下均可'
+        break;
+    }
+    return str
+  }
+
+
+  module.exports = {
+    xueli: xueli, pm: pm, ms: ms
+  }
+</wxs>
+
+<view class="fillIn">
+    <view class="box">
+        <view class="userInfo_box">
+            <image class="userInfo_img" src="{{detailInfo.avatar}}" />
+            <view class="userInfo_code">
+                <text>ID：{{detailInfo.plan_sn}}</text>
+                <view>{{detailInfo.rz_name || '未获得认证称号'}}</view>
+            </view>
+        </view>
+        <view class="line">
+            <view class="left">姓名</view>
+            <view class="right">{{detailInfo.name}}</view>
+        </view>
+        <view class="line">
+            <view class="left">性别</view>
+            <view class="right">{{detailInfo.gender == '0' ? '女' : '男'}}</view>
+        </view>
+        <view class="line">
+            <view class="left">籍贯</view>
+            <view class="right">{{detailInfo.jiguan}}</view>
+        </view>
+        <view class="line">
+            <view class="left">从事教育行业时长</view>
+            <view class="right">{{detailInfo.times}}年</view>
+        </view>
+        <view class="line">
+            <view class="left">平台注册时间</view>
+            <view class="right">系统自动录入(2021年)</view>
+        </view>
+        <view class="line">
+            <view class="left">平台接单次数</view>
+            <view class="right">{{detailInfo.nums}}次</view>
+        </view>
+        <view class="line">
+            <view class="left">浏览人数</view>
+            <view class="right">{{detailInfo.look}}</view>
+        </view>
+    </view>
+    <wxs module="m2">
+      function imageIsSelect(img, name, _is) {
+        var str = ''
+        if(name == '登陆达人') {
+          str = (_is == 0 ? '/user/start/icon/no_m1.png' : img)
+        }
+        if(name == '规划大师') {
+          str = (_is == 0 ? '/user/start/icon/no_m5.png' : img)
+        }
+        if(name == '讲师大师') {
+          str = (_is == 0 ? '/user/start/icon/no_m6.png' : img)
+        }
+        if(name == '订单大师') {
+          str = (_is == 0 ? '/user/start/icon/no_m4.png' : img)
+        }
+        if(name == '咨询大师') {
+          str = _is == 0 ? '/user/start/icon/no_m3.png' : img
+        }
+        if(name == '新手通关') {
+          str = _is == 0 ? '/user/start/icon/no_m2.png' : img
+        }
+
+        return str
+      }
+
+      module.exports = {
+        imageIsSelect: imageIsSelect
+      }
+    </wxs>
+    <view class="title">职业勋章</view>
+    <view class="no_detail" wx:if="{{badge1.length == 0}}">暂无职业勋章</view>
+    <view class="image_list_zy" style="{{badge1.length == 6 ? 'justify-content: space-between;' : ''}}">
+        <block wx:for="{{badge1}}" wx:key="this">
+          <view style="{{badge1.length != 6 ? 'margin-right:32rpx' : ''}}">
+            <image src="{{item.image}}" mode="widthFix"/>
+            <text>{{item.name}}</text>
+          </view>
+        </block>
+    </view>
+    <view class="title">平台勋章</view>
+    <view class="image_list">
+        <block wx:for="{{detailInfo.badge0}}" wx:key="this">
+          <view>
+            <image src="{{m2.imageIsSelect(item.image, item.name, item.istrue)}}" mode="widthFix"/>
+            <text>{{item.name}}</text>
+          </view>
+        </block>
+    </view>
+    <view class="title">教育经历</view>
+    <view class="box_ box">
+        <view class="line">
+            <view class="left">最高学历毕业院校</view>
+            <view class="right blod">{{detailInfo.jy_xueli}}</view>
+        </view>
+        <view class="line">
+            <view class="left">最高学历</view>
+            <view class="right blod">{{m1.xueli(detailInfo.jy_xl_status)}}</view>
+        </view>
+        <view class="line">
+            <view class="left">目前状态</view>
+            <view class="right blod">{{detailInfo.jy_status == '1' ? '已毕业' : '在读'}}</view>
+        </view>
+        <view class="line">
+            <view class="left">最高学历社会排名</view>
+            <view class="right blod">{{m1.pm(detailInfo.jy_pm_status)}}</view>
+        </view>
+    </view>
+    <block wx:if="{{zsList.length != 0}}">
+      <view class="title">曾获证书</view>
+      <view class="box box_">
+          <block wx:for="{{zsList}}" wx:key="this">
+            <view class="line">
+                <view class="left">{{item[0]}}</view>
+                <view class="right blod">{{item[1]}}</view>
+            </view>
+          </block>
+      </view>
+    </block>
+    <block wx:if="{{gzList.length != 0}}">
+      <view class="title">工作经历</view>
+      <view class="box box_">
+          <block wx:for="{{gzList}}" wx:key="this">
+            <view class="line">
+                <view class="left">{{item[0]}}</view>
+                <view class="right blod">{{item[1]}}</view>
+            </view>
+          </block>
+      </view>
+    </block>
+    <view class="title">详细信息</view>
+    <view class="box box_">
+        <view class="line">
+            <view class="left">目前所在城市</view>
+            <view class="right blod">{{detailInfo.city}}</view>
+        </view>
+        <view class="line">
+            <view class="left">可授课模式</view>
+            <view class="right blod">{{m1.ms(detailInfo.info_status)}}</view>
+        </view>
+        <view class="line">
+            <view class="left">擅长领域</view>
+            <view class="right blod">{{detailInfo.info_tags}}</view>
+        </view>
+        <view class="line">
+            <view class="left">工作模式</view>
+            <view class="right blod">{{m1.ms(detailInfo.info_work_status)}}</view>
+        </view>
+        <view class="line">
+            <view class="left">是否有固定授课场地</view>
+            <view class="right blod">{{detailInfo.info_field_status == '1' ? '是' : '否'}}</view>
+        </view>
+    </view>
+    <view class="title">
+        <view >可辅导时间</view>
+    </view>
+    <view class="table">
+        <view class="table_r table_tit">
+            <view class="table_th flex">星期</view>
+            <view class="table_td flex" style="margin-left:0;">时间</view>
+        </view>
+        <block wx:for="{{fdTime}}" wx:key="this">
+          <view class="table_r">
+            <view class="table_th grey flex">{{item[0]}}</view>
+            <view class="table_td">{{item[1]}}</view>
+          </view>
+        </block>
+        <view class="table_r" wx:if="{{fdTime.length == 0}}" style="display: flex; justify-content: center; height: 100rpx;">
+          未添加可辅导时间
+        </view>
+    </view>
+    <view class="title">个人自述</view>
+    <textarea value="{{detailInfo.desc}}" placeholder="这个人很懒，没有添加信息" disabled="{{true}}"></textarea>
+    <view class="title">
+        <view >辅导成果</view>
+    </view>
+    <view class="table">
+        <view class="table_tlt">
+            <view class="table_th flex" style="width:106rpx;">时间</view>
+            <view class="table_th flex" style="width:106rpx;">学生姓名</view>
+            <view class="table_th flex" style="width:106rpx;">辅导类型</view>
+            <view class="table_th flex" style="width:134rpx;">学生情况</view>
+            <view class="table_th flex" style="width:122rpx;">辅导效果</view>
+            <view class="table_th flex" style="width:108rpx;">辅导时长</view>
+        </view>
+        <view class="table_row" style="justify-content: center" wx:if="{{chengguo_arr.length == 0}}">
+          未添加辅导成果
+        </view>
+        <view class="table_row" wx:for="{{chengguo_arr}}" wx:key="this">
+            <view class="flex" style="width:106rpx;">{{item.date_}}</view>
+            <view class="flex" style="width:106rpx;">{{item.name}}</view>
+            <view class="flex" style="width:106rpx;">{{item.type_}}</view>
+            <view class="flex" style="width:134rpx;">{{item.situation}}</view>
+            <view class="flex" style="width:122rpx;">{{item.result_}}</view>
+            <view class="flex" style="width:108rpx;">{{item.time_}}</view>
+        </view>
+    </view>
+    <!-- <button class="flex">提交</button> -->
+    <view class="keyboard" wx:if="{{focus}}" catch:tap="onCatch">
+        <view class="input_box" style="bottom:{{height}}px;">
+            <input focus="{{focus}}" bindfocus="onFocus" />
+            <view class="flex">完成</view>
+        </view>
+    </view>
+</view>

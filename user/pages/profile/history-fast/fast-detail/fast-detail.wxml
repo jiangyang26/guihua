@@ -1,0 +1,38 @@
+<view class="fast_detail">
+  <view class="head_box">
+    <view class="top">
+      <text>姓名</text>
+      <text>{{hisPlanDetail.ks_name}}</text>
+    </view>
+    <view class="bottom">
+      <text>联系方式</text>
+      <text>{{hisPlanDetail.ks_mobile}}</text>
+    </view>
+  </view>
+  <view class="box_title">
+    <view></view>
+    <text>招募类型</text>
+  </view>
+  <view class="recruit_box">
+    <view class="recruit_mark_f">{{hisPlanDetail.type}}</view>
+    <view class="recruit_mark_l">{{hisPlanDetail.type2}}</view>
+  </view>
+  <view class="box_title">
+    <view></view>
+    <text>授课形式</text>
+  </view>
+  <view class="teaching_box"> 
+    <view>{{hisPlanDetail.ks_status}}</view>
+    <text wx:if="{{hisPlanDetail.ks_status != '线上'}}">{{hisPlanDetail.ks_address}}</text>
+  </view>
+  <view class="box_title">
+    <view></view>
+    <text>预算范围</text>
+  </view>
+  <view class="price_box"><text>{{hisPlanDetail.ks_price}}/小时</text></view>
+  <view class="box_title">
+    <view></view>
+    <text>其他要求</text>
+  </view>
+  <view class="other_box"><text>{{hisPlanDetail.ks_desc || '无其他要求'}}</text></view>
+</view>

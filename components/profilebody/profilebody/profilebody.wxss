@@ -1,0 +1,45 @@
+/* components/profilebody/profilebody/profilebody.wxss */
+.list{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  width: 100%;
+}
+.body_box{
+  display: flex;
+  justify-content: space-between;
+}
+.box_left, .box_right{
+  width: 328rpx;
+  height: 144rpx;
+  background: linear-gradient(270deg, #625FE8 0%, #9E9DEE 100%);
+  border-radius: 8px 8px 8px 8px;
+  display: flex;
+  align-items: center;
+}
+.box_left>image, .box_right>image{
+  width: 72rpx;
+  height: 72rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.box_left text:first-child{
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.box_left text:last-child{
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #CCCCCC;
+  margin-top: 4rpx;
+}
+.box_left>view{
+  display: flex;
+  flex-flow: column;
+}
+.box_right text{
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #FFFFFF;
+}

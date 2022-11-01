@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "scan": "./../../seleClass/scan/scan"
+  },
+  "navigationBarTitleText": "学校所需讲师"
+}

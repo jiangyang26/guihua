@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-transition": "@vant/weapp/transition/index"
+  },
+  "navigationBarTitleText": "上传简历"
+}

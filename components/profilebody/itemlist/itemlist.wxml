@@ -1,0 +1,4 @@
+<view class="item_list" bindtap="handleToPage" data-url_="{{detail.url}}" data-title="{{detail.title}}">
+  <view><image src="{{detail.image}}" mode="widthFix"></image></view>
+  <text>{{detail.title1}}</text>
+</view>

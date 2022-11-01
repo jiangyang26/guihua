@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "navbar": "/components/navbar/index",
+    "scan": "/planner/pages/seleClass/scan/scan",
+    "van-transition": "@vant/weapp/transition/index"
+  },
+  "navigationStyle": "custom"
+}

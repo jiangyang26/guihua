@@ -1,0 +1,18 @@
+/* components/caseshare/case-share/case-share.wxss */
+.case_share{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  margin-bottom: 32rpx;
+}
+.case_share image{
+  width: 40rpx;
+  height: 32rpx;
+}
+.case_share>text{
+  margin: 0px 32rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #000000;
+}

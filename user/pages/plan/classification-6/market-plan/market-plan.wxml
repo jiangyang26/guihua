@@ -1,0 +1,78 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>计划目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的类目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="multiSelector" range="{{categoryArray}}" bindchange="changeCategory">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">规划类别 </text>{{inputInfo.category || categoryArray[1][categoryValue[1]]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>目前状态</text>
+    </view>
+    <picker range="{{tradeArray}}" bindchange="changeTrade">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">公司所在行业 </text>{{inputInfo.trade || tradeArray[tradeValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker range="{{scaleArray1}}" bindchange="changeScale1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">企业规模 </text>{{inputInfo.scale1 || scaleArray1[scaletValue1]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="date" start="1980" end="2099" fields="year" bindchange="changeTime">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">成立时间 </text>{{timeValue}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{preYearArray}}" bindchange="changePreYear">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">上一年流水 </text>{{inputInfo.preYear || preYearArray[preYearValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{prePriceArray}}" bindchange="changePrePrice">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">上一轮获得融资金额 </text>{{inputInfo.prePrice || prePriceArray[prePriceValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <textarea placeholder="其他信息介绍" placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

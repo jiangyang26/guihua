@@ -1,0 +1,237 @@
+<!-- pages/me/Collect/clues.wxml -->
+<import src="../../../template/index.wxml"></import>
+<template is="banners" data="{{banner}}"></template>
+<view class="title_">订单筛选</view>
+<view class="top_button">
+  <view bindtap="collScreenTap" data-status="1">规划类订单线索</view>
+  <view bindtap="collScreenTap" data-status="2">快速发布订单线索</view>
+</view>
+
+<view class="no_detail" wx:if="{{planCollList.length == 0 && fastCollList.length == 0 && paramsInfo.status == ''}}">暂无收藏规划订单</view>
+<block wx:if="{{planCollList.length != 0 && paramsInfo.status == ''}}">
+    <view class="gh_title">规划类订单举例</view>
+    <view class="gh_box" wx:for="{{planCollList}}" wx:key="this" catchtap="toPlanDetail" data-plan_id="{{item.id}}">
+        <view class="head">
+            <view>
+                <view>线索{{item.id}}</view>
+                <view class="flex">
+                    <view>{{item.type_status == '1' ? '可接' : '成单'}}</view>
+                </view>
+            </view>
+            <view catchtap="addCollTap" data-id="{{item.id}}" data-index="{{index}}" data-iscoll="{{item.iscoll}}">
+                <image src="{{item.iscoll == 0 ? '/planner/start/icon/collect_n.png' : '/planner/start/icon/collect_s.png'}}" />
+                {{item.iscoll == 0 ? '未收藏' : '已收藏'}}
+            </view>
+        </view>
+
+        <view class="body">
+            <view class="line">
+                <view class="td">需求类型</view>
+                <view class="th">{{item.type}}</view>
+            </view>
+            <view class="line">
+                <view class="td">目标耗时</view>
+                <view class="th">{{item.ql_times}}</view>
+            </view>
+            <view class="line">
+                <view class="td">规划目标</view>
+                <view class="th">{{item.ql_info}}</view>
+            </view>
+            <view class="line">
+                <view class="td">目前情况</view>
+                <view class="th">{{item.ql_type || '暂无'}}</view>
+            </view>
+            <view class="line">
+                <view class="td">其他要求</view>
+                <view class="th">{{item.ql_desc || '暂无'}}</view>
+            </view>
+        </view>
+        <view class="footer">
+            <view class="order">
+                <view>{{item.look}} 浏览量</view>
+                <view>{{item.coll}} 收藏量</view>
+                <view>{{item.leaving}} 沟通量</view>
+            </view>
+            <view class="contact flex" catchtap="toMessageDetaiil" data-type="home" 
+                  data-user_id="{{item.user_id}}">
+              联系对方
+            </view>
+        </view>
+        
+    </view>
+</block>
+
+<block wx:if="{{fastCollList.length != 0 && paramsInfo.status == ''}}">
+    <view class="gh_title">快速发布线索举例</view>
+    <view class="gh_box" wx:for="{{fastCollList}}" wx:key="this" catchtap="toFastDetail" data-plan_id="{{item.id}}">
+        <view class="head">
+            <view>
+                <view>线索{{item.id}}</view>
+                <view class="flex">
+                    <view>{{item.type_status == '1' ? '可接' : '成单'}}</view>
+                </view>
+            </view>
+            <view catchtap="addCollTap" data-id="{{item.id}}" data-index="{{index}}" data-iscoll="{{item.iscoll}}">
+                <image src="{{item.iscoll == 0 ? '/planner/start/icon/collect_n.png' : '/planner/start/icon/collect_s.png'}}" />
+                {{item.iscoll == 0 ? '未收藏' : '已收藏'}}
+            </view>
+        </view>
+        <view class="body">
+            <view class="line">
+                <view class="td">姓名</view>
+                <view class="th">{{item.ks_name}}</view>
+            </view>
+            <view class="line">
+                <view class="td">联系方式</view>
+                <view class="th">{{item.ks_mobile}}</view>
+            </view>
+            <view class="line">
+                <view class="td">招募类型</view>
+                <view class="th">{{item.type}}</view>
+            </view>
+            <view class="line">
+                <view class="td">授课形式</view>
+                <view class="th" style="font-weight:400;">{{item.ks_status}}</view>
+            </view>
+            <view class="line">
+                <view class="td">课酬范围</view>
+                <view class="th" style="font-weight:400;">
+                    <view class="time flex" style="background-color: #5350D5;color: #fff">
+                      {{item.ks_price}}/小时
+                    </view>
+                </view>
+            </view>
+            <view class="line">
+                <view class="td">其他要求</view>
+                <view class="th" style="color:#999999;font-weight:400;font-size:26rpx;">
+                    {{item.ks_desc}}
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <view class="order">
+              <view>{{item.look}} 浏览量</view>
+              <view>{{item.coll}} 收藏量</view>
+              <view>{{item.leaving}} 沟通量</view>
+            </view>
+            <view class="contact flex" catchtap="toMessageDetaiil" data-type="home" data-user_id="{{item.user_id}}">联系对方</view>
+        </view>
+    </view>
+</block>
+
+
+<view class="gh_title" wx:if="{{paramsInfo.status == '1'}}">规划类订单举例</view>
+<view class="gh_title" wx:if="{{paramsInfo.status == '2'}}">发布类订单举例</view>
+<view class="no_detail" wx:if="{{collListFilter.length == 0 && (paramsInfo.status == '1' || paramsInfo.status == '2')}}">暂无收藏的规划订单</view>
+<block wx:for="{{collListFilter}}" wx:key="this">
+  <block wx:if="{{paramsInfo.status == '1'}}">
+      <view class="gh_box" catchtap="toPlanDetail" data-plan_id="{{item.id}}">
+          <view class="head">
+              <view>
+                  <view>线索{{item.id}}</view>
+                  <view class="flex">
+                      <view>{{item.type_status == '1' ? '可接' : '成单'}}</view>
+                  </view>
+              </view>
+              <view catchtap="addCollTap" data-id="{{item.id}}" data-type="screen" data-iscoll="{{item.iscoll}}">
+                  <image src="{{item.iscoll == 0 ? '/planner/start/icon/collect_n.png' : '/planner/start/icon/collect_s.png'}}" />
+                  {{item.iscoll == 0 ? '未收藏' : '已收藏'}}
+              </view>
+          </view>
+
+          <view class="body">
+              <view class="line">
+                  <view class="td">需求类型</view>
+                  <view class="th">{{item.type}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">目标耗时</view>
+                  <view class="th">{{item.ql_times}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">规划目标</view>
+                  <view class="th">{{item.ql_info}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">目前情况</view>
+                  <view class="th">{{item.ql_type || '暂无'}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">其他要求</view>
+                  <view class="th">{{item.ql_desc || '暂无'}}</view>
+              </view>
+          </view>
+          <view class="footer">
+              <view class="order">
+                  <view>{{item.look}} 浏览量</view>
+                  <view>{{item.coll}} 收藏量</view>
+                  <view>{{item.leaving}} 沟通量</view>
+              </view>
+              <view class="contact flex" catchtap="toMessageDetaiil" data-type="home" 
+                    data-user_id="{{item.user_id}}">
+                联系对方
+              </view>
+          </view>
+          
+      </view>
+  </block>
+
+  <block wx:if="{{paramsInfo.status == '2'}}">
+      <view class="gh_box" catchtap="toFastDetail" data-plan_id="{{item.id}}">
+          <view class="head">
+              <view>
+                  <view>线索{{item.id}}</view>
+                  <view class="flex">
+                      <view>{{item.type_status == '1' ? '可接' : '成单'}}</view>
+                  </view>
+              </view>
+              <view catchtap="addCollTap" data-id="{{item.id}}" data-type="screen" data-iscoll="{{item.iscoll}}">
+                  <image src="{{item.iscoll == 0 ? '/planner/start/icon/collect_n.png' : '/planner/start/icon/collect_s.png'}}" />
+                  {{item.iscoll == 0 ? '未收藏' : '已收藏'}}
+              </view>
+          </view>
+          <view class="body">
+              <view class="line">
+                  <view class="td">姓名</view>
+                  <view class="th">{{item.ks_name}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">联系方式</view>
+                  <view class="th">{{item.ks_mobile}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">招募类型</view>
+                  <view class="th">{{item.type}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">授课形式</view>
+                  <view class="th" style="font-weight:400;">{{item.ks_status}}</view>
+              </view>
+              <view class="line">
+                  <view class="td">课酬范围</view>
+                  <view class="th" style="font-weight:400;">
+                      <view class="time flex" style="background-color: #5350D5;color: #fff">
+                        {{item.ks_price}}/小时
+                      </view>
+                  </view>
+              </view>
+              <view class="line">
+                  <view class="td">其他要求</view>
+                  <view class="th" style="color:#999999;font-weight:400;font-size:26rpx;">
+                      {{item.ks_desc}}
+                  </view>
+              </view>
+          </view>
+          <view class="footer">
+              <view class="order">
+                <view>{{item.look}} 浏览量</view>
+                <view>{{item.coll}} 收藏量</view>
+                <view>{{item.leaving}} 沟通量</view>
+              </view>
+              <view class="contact flex" catchtap="toMessageDetaiil" data-type="home" data-user_id="{{item.user_id}}">联系对方</view>
+          </view>
+      </view>
+  </block>
+
+
+</block>

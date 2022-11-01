@@ -1,0 +1,5 @@
+/* components/lines/lines.wxss */
+.line{
+  border-top: 2px solid #DDDDDD;
+  border-radius: 8px 8px 8px 8px;
+}

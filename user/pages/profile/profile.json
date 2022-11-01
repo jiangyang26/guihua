@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-nav": "/components/nav/nav",
+    "profile-body": "/components/profilebody/profilebody/profilebody",
+    "navbar": "/components/navbar/index"
+  },
+  "navigationStyle": "custom"
+}

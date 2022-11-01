@@ -1,0 +1,12 @@
+<view class="agreement">
+  <view class="agreement_box">
+    <text class="title">协议标题协议标题协议标题</text>
+    <text class="href">合同链接URL</text>
+    <view>查看已生成的协议合同</view>
+  </view>
+  <view class="agreement_box">
+    <text class="title">协议标题协议标题协议标题</text>
+    <text class="href">合同链接URL</text>
+    <view>查看已生成的协议合同</view>
+  </view>
+</view>

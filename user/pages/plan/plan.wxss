@@ -1,0 +1,262 @@
+/* pages/plan/plan.wxss */
+page {
+  height: 100%;
+  background-color: #FAFCFF;
+}
+.head_pic{
+  width: 100%;
+  display: flex;
+}
+.head_pic image{
+  width: 100%;
+}
+.remind{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+  margin: 24rpx 0px;
+  padding: 0px 30rpx;
+  box-sizing: border-box;
+}
+.rectangle{
+  height: 144rpx;
+  background: #F5F5F5;
+  border-radius: 4px 4px 4px 4px;
+  opacity: 1;
+  border: 1px solid #DDDDDD;
+
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 40rpx;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.tag{
+  display: flex;
+}
+.mark_v{
+  width: 196rpx;
+  height: 66rpx;
+  border-radius: 44px 44px 44px 44px;
+  border: 1px solid #5350D5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #5350D5;
+  margin-right: 24rpx;
+}
+.current_situation{
+  height: 256rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 8px 8px 8px 8px;
+  padding: 24rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+.current_situation>textarea{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #000000;
+  line-height: 15px;
+  height: 100%;
+  flex: 1;
+}
+.fast_plan{
+  width: 240rpx;
+  height: 96rpx;
+  border-radius: 44px 44px 44px 44px;
+  border: 2px solid #5350D5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx auto 64rpx;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: #5357EB;
+}
+.place{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+}
+.plac_{
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #999999;
+  line-height: 30rpx;
+}
+.choose_plan{
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  padding: 28rpx;
+  box-sizing: border-box;
+}
+.plan_top{
+  display: flex;
+  height: 340rpx;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.plan_bottom{
+  height: 92px;
+  margin-top: 30rpx;
+}
+.plan_bottom>textarea{
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  border-radius: 4px 4px 4px 4px;
+  line-height: 30rpx;
+  font-size: 26rpx;
+}
+.left>view, .center>view, .right>view{
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.left view{
+  width: 176rpx;
+}
+.center view{
+  width: 208rpx;
+}
+.right{
+  width: 192rpx;
+}
+.left, .center, .right{
+  display: flex;
+  flex-flow: column;
+}
+.left view, .center view, .right view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8rpx;
+}
+.left_view1{
+  height: 88rpx;
+  background: #ECF2FB;
+}
+.left_view2{
+  height: 88rpx;
+  background: #FDEEEA;
+}
+.left_view3{
+  height: 118rpx;
+  background: #F5F5F5;
+}
+.left, .center, .right{
+  justify-content: space-between;
+}
+.center_view1{
+  height: 88rpx;
+  background: #F5F5F5;
+}
+.center_view2{
+  height: 118rpx;
+  background: #ECF2FB;
+}
+.center_view3{
+  height: 72rpx;
+  background: #F5F5F5;
+}
+.right_view1{
+  height: 72rpx;
+  background: #F5F5F5;
+}
+.right_view2{
+  height: 136rpx;
+  background: #ECF2FB;
+}
+.right_view3{
+  height: 74rpx;
+}
+.mark_t{
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #000000;
+}
+.active{
+  background: #5350D5;
+
+}
+.active text{
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.mark_two{
+  display: flex;
+  flex-flow: column;
+  font-size: 30rpx;
+  color: #060707;
+  margin-top: 30rpx;
+}
+.mark_two>view{
+  display: flex;
+}
+.mark_two>view>view{
+  width: 200rpx;
+}
+.custom_{
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.planner{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.item_pl{
+  flex: 1;
+  position: relative;
+  font-size: 0;
+}
+.item_pl image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.item_pl text{
+  position: absolute;
+  width: 100%;
+  top: 118rpx;
+  /* left: calc(50% - 6rpx); */
+  /* margin-left: -24rpx; */
+  text-align: center;
+  left: 0px;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.mark_box_{
+  position: absolute;
+  top: 16rpx;
+  left: 112rpx;
+}
+.mark_box_>image{
+  width: 16px;
+  height: 16px;
+}
+.case_list_box image{
+  border-radius: 20rpx;
+  width: 100%;
+  margin-bottom: 30rpx;
+  box-shadow: 0px 0px 24rpx 2rpx rgba(0, 0, 0, 0.1);
+}
+.case_list_box{
+  margin-bottom: 120rpx;
+}

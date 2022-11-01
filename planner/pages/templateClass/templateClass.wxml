@@ -1,0 +1,57 @@
+<import src="/template/tabbar/tabbar"></import>
+<template is="tabBar" data="{{tabbar}}"/>
+<view class='view-page' style="height: {{navHeight}}px;position: fixed; top: 0;left: 0;right: 0;z-index: 100;">
+  <navbar page-name="3H模板课" show-nav="{{false}}" bg-color="#FAFCFF"></navbar>
+</view>
+
+<view style="margin-top: {{navHeight}}px;padding-bottom: 200rpx;box-sizing: border-box;">
+  <import src="../../template/index.wxml" />
+  <template is="banners" data="{{banner}}"></template>
+
+  <view class="type_title">模板课类型</view>
+  <view class="cate_list_box">
+    <block wx:for="{{cateList}}" wx:key="this">
+      <view bindtap="cateActiveTap" data-index="{{index}}" data-id="{{item.gh3hcate_id}}"
+            class="{{currentIndex == index ? 'active_' : ''}}">
+        {{item.name}}
+      </view>
+    </block>
+  </view>
+
+  <view class="no_detail"  wx:if="{{infoList.length == 0}}">暂无模板课</view>
+
+  <view class="box" wx:for="{{infoList}}" wx:key="this">
+    <view class="head">
+      <view class="logo flex">3H模板课</view>
+      <view class="title">{{item.name}}</view>
+    </view>
+    <view class="body">
+      <view class="userInfo">
+        <image src="{{item.gh_image}}" />
+        <view>{{item.gh_name}}</view>
+      </view>
+      <view class="introduce">{{item.desc}}</view>
+      <view class="time">开课时间：{{item.str}}</view>
+      <view class="time">课程收获:</view>
+      <view class="line">
+        <block wx:for="{{item.tags}}" wx:for-item="itemTag" wx:key="this">
+          <view class="row">
+            <view>{{itemTag}}</view>
+            <image src="/planner/start/icon/unchecked.png" />
+          </view>
+        </block>
+      </view>
+      
+      <view class="bottom">
+        同期最多人数：{{item.max}}
+        <view class="flex" bindtap="toScan" data-image="{{item.qrcode_image}}">立即报名</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<block wx:if="{{scanShow}}" class="abc">
+  <scan bind:back="scanBack" image="{{qrcode_image}}" index="{{index}}"/>
+</block>
+

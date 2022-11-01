@@ -1,0 +1,82 @@
+.banner {
+  margin: 0 auto;
+  width: 690rpx;
+  height: 320rpx;
+}
+.banner > image {
+  width: 100%;
+  height: 100%;
+}
+page {
+  background: #FAFCFF;
+  padding: 0 30rpx 112rpx;
+  box-sizing: border-box;
+}
+.region_box {
+  display: flex;
+  position: sticky;
+  top: 0;
+  height: 80rpx;
+  background: #FAFCFF;
+  margin-top: 30rpx;
+}
+.region_box view{
+  width: 140rpx;
+  display: flex;
+  align-items: center;
+}
+.region_box text{
+  font-size: 32rpx;
+  color: #333333;
+}
+.region_box image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+
+.box {
+  margin: 10rpx -30rpx 32rpx;
+  padding: 24rpx 30rpx;
+  box-sizing: border-box;
+  box-shadow: 0 0 10rpx 1rpx rgba(0, 0, 0, 0.1);
+}
+.box .blate {
+  display: flex;
+}
+.box .blate .hd_image {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 4rpx;
+}
+.box .blate .whole {
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+.box .blate .whole .title {
+  font-size: 36rpx;
+}
+.box .blate .whole .sarsb {
+  flex: 1;
+  margin-top: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box .blate .whole .sarsb .line {
+  font-size: 26rpx;
+  color: #666666;
+}
+.button_ {
+  width: 130rpx;
+  height: 60rpx;
+  background-color: #5550D6;
+  color: #ffffff;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rpx;
+}

@@ -1,0 +1,84 @@
+/**app.wxss**/
+.home_bgd{
+  padding: 0px 30rpx 200rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+.home{
+  background: #FAFCFF;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title_box {
+  padding-bottom: 10rpx;
+  display: inline-block;
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-bottom: 2px solid #5350D5;
+}
+.place{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #999999;
+}
+.blod{
+  font-weight: bold;
+}
+.menu-item, .menu-item1{  
+  flex: 1;
+  text-align: center;  
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+}  
+.menu-item>text, .menu-item1>text{
+  font-size: 20rpx;
+}
+.img{ 
+  width: 46rpx;  
+  height: 46rpx;  
+  display: block;  
+  margin:auto;  
+}  
+.clear{  
+  clear: both;  
+}  
+.tab-bar{
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  position: fixed;  
+  width: 100%;  
+  height: 112rpx;
+  background: #FFFFFF;
+  /* border-top: 1px solid #CCCCCC; */
+  box-shadow: 0px 1px 3px #CCCCCC;
+  z-index: 100;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.view-page {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+.view-page .page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0rpx 30rpx 200rpx;
+  box-sizing: border-box;
+}
+.no_detail{
+  text-align: center;
+  margin-top: 100rpx;
+  color: #333333;
+  font-size: 34rpx;
+}

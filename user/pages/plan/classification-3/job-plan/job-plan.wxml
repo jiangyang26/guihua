@@ -1,0 +1,111 @@
+<view class="study_plan">
+  <view class="study_target">
+    <view class="target_top_">
+      <view>3</view>
+      <text>计划目标</text>
+    </view>
+    <view class="target_bottom_">选择想要实现的求职类目标</view>
+  </view>
+
+  <view class="study_body">
+    <picker mode="region" level="city"  bindchange="changeRegion1">
+      <view class="lines">
+        <text class="place_">
+          <text style="color: black;">计划工作城市 </text>{{regionValue1.length != 0 ? regionValue1[0]+'-'+regionValue1[1] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{mortgageArray}}" bindchange="changeMortgage">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">目标公司类型 </text>{{mortgageArray[mortgageValue]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{scaleArray1}}" bindchange="changeScale1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">公司规模 </text>{{scaleArray1[scaleValue1]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker range="{{targetArray}}" bindchange="changeTarget">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">岗位类型 </text>{{inputInfo.targetValue ? inputInfo.targetValue : (targetArray[targetValue] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{useArray}}" bindchange="changeUse">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">目标岗位 </text>{{inputInfo.useValue ? inputInfo.useValue : (useArray[useValue] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+
+    <picker range="{{targetArray1}}" bindchange="changeTarget1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">其他目标 </text>{{inputInfo.targetValue1 ? inputInfo.targetValue1 : (targetArray1[targetValue1] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="focus_box" wx:if="{{focus}}" style="bottom: {{height}}px;">
+    <input type="text" bindinput="changeInput" focus="{{focus}}" 
+           maxlength="-1" bindfocus="handleInputFocus" bindblur="handleInputBlur"
+           adjust-position="{{false}}"/>
+    <view><button size="mini">确定</button></view>
+  </view>
+
+  <view class="study_current">
+    <view class="target_top_">
+      <view>4</view>
+      <text>目前状态</text>
+    </view>
+    <picker mode="region" level="city" bindchange="changeRegion">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">目前所在城市 </text>{{regionValue.length != 0 ? regionValue[0]+'-'+regionValue[1] : ''}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{mortgageArray1}}" bindchange="changeMortgage1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">目前个人状态 </text>{{mortgageArray1[mortgageValue1]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{scaleArray2}}" bindchange="changeScale2">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">目前个人学历 </text>{{scaleArray2[scaleValue2]}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{useArray1}}" bindchange="changeUse1">
+      <view class="lines mark_lines">
+        <text class="place_">
+          <text style="color: black;">擅长领域 </text>{{inputInfo.useValue1 ? inputInfo.useValue1 : (useArray1[useValue1] || '')}}
+        </text>
+        <image src="/user/start/icon/down.png" mode="widthFix"></image>
+      </view>
+    </picker>
+    <textarea placeholder="其他" placeholder-class="place_" bindinput="changeOther">
+    </textarea>
+  </view>
+
+  <view class="submit" bindtap="submitTap">提交</view>
+</view>

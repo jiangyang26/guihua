@@ -1,0 +1,58 @@
+<!--pages/me/collection/collection.wxml-->
+<import src="../../../template/index.wxml" />
+<template is="banners" data="{{banner}}"></template>
+<view class="title">第一步：服务规划类别</view>
+<view class="grow_box">
+    <block wx:for="{{territoryList}}" wx:key="this">
+        <picker mode="multiSelector" range="{{item.title}}" disabled="{{item.disabled}}" bindchange="changeTerritory">
+          <view class="grow flex {{index == 0 || index == 4 || index == 5 ? 'ec' : 'ee'}}"
+              style="{{currentIndex == index ?' color: white; background: #5350D5;' : ''}}"
+              bindtap="territoryTap" data-title="{{item.title[0][0]}}" data-index="{{index}}">
+            {{item.title[0][0]}}
+          </view>
+        </picker>
+    </block>
+    <textarea placeholder="没有可自填" value="{{paramsInfo.type2}}" bindinput="changeOther"></textarea>
+</view>
+<view class="title">第二步：服务周期</view>
+<view class="box">
+    <input placeholder="请输入服务周期" value="{{inputInfo.step2}}" bindinput="changeInput1" type="number"></input>
+</view>
+<view class="title">第三步：课程次数</view>
+<view class="box">
+    <input placeholder="请输入课程次数" value="{{inputInfo.step3}}" bindinput="changeInput2" type="number"></input>
+</view>
+<view class="title">第四步：课程金额</view>
+<view class="box">
+    <input placeholder="请输入课程金额" value="{{inputInfo.step4}}" bindinput="changeInput3"  type="number"></input>
+</view>
+<view class="title">第五步：授课模式</view>
+<view class="box">
+   <van-radio-group
+  value="{{ radio }}"
+  bind:change="onChange"
+  direction="horizontal"
+  class="flex"
+>
+  <van-radio name="{{1}}" custom-class="radio" icon-size="32rpx">线上</van-radio>
+  <van-radio name="{{2}}" custom-class="radio" icon-size="32rpx">线下</van-radio>
+  <van-radio name="{{3}}" custom-class="radio" icon-size="32rpx">线上+线下</van-radio>
+</van-radio-group>
+</view>
+<view class="title">第六步：家长姓名</view>
+<view class="box">
+    <input placeholder="请输入家长姓名" value="{{inputInfo.step6}}" bindinput="changeInput4"></input>
+</view>
+<view class="title">第七步：家长身份证号</view>
+<view class="box">
+    <input placeholder="请输入身份证号" value="{{inputInfo.step7}}" bindinput="changeInput5" maxlength="{{18}}"></input>
+</view>
+<view class="title">第八步：家长电话</view>
+<view class="box">
+    <input placeholder="请输入电话" value="{{inputInfo.step8}}" bindinput="changeInput6" type="number" maxlength="{{11}}"></input>
+</view>
+<view class="title">第九步：线索序号<text style="font-size: 22rpx;color: #686868;">（请到首页线索列表查看）</text></view>
+<view class="box">
+    <input placeholder="请输入线索序号" value="{{inputInfo.step9}}" bindinput="changeInput7"></input>
+</view>
+<button class="flex" bindtap="submitTap">提交</button>

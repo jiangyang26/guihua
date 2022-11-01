@@ -1,0 +1,53 @@
+/* planner/pages/me/agreement/agreement.wxss */
+.agreement{
+  padding: 46rpx 40rpx 112rpx;
+  background: #FAFCFF;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.agreement_box{
+  /* height: 400rpx; */
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 24rpx 2rpx rgba(0, 0, 0, 0.05);
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 32rpx;
+}
+.agreement_box>.title{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000000;
+}
+.agreement_box>.href{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #2BB2FF;
+  margin-top: 48rpx;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+.agreement_box>.bottom{
+  width: 336rpx;
+  height: 64rpx;
+  background: #5350D5;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top: 120rpx;
+}
+
+.multiline_text_overflow{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
